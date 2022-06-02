@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "sKiyrsgWeHzbnavymxattWKgYBijCc8bFjTfOowOO7BXY4QjU6ZqtTmoWvZQsWObqpUjapGtVBQ3feWrJMD1hQ==",
+  "dgSpecHash": "c4FUm9wX4Yb/CO3hmSLT39uu7SAkGK4nM4uN9FocfPtZu8TN4XC/hy0V3iRy2pTb+dN7P8Y2Er6pmViIntqYzg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Giovani\\Desktop\\UnivespPI2\\ProjectPI2\\ProjectPI2.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/hygor/Development/PI02-2022/UnivespPI2/ProjectPI2/ProjectPI2.csproj",
+  "expectedPackageFiles": [
+    "/home/hygor/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.2/microsoft.aspnetcore.app.ref.6.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

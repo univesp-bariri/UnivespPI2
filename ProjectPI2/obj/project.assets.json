@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Giovani\\.nuget\\packages\\": {}
+    "/home/hygor/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Giovani\\Desktop\\UnivespPI2\\ProjectPI2\\ProjectPI2.csproj",
+      "projectUniqueName": "/home/hygor/Development/PI02-2022/UnivespPI2/ProjectPI2/ProjectPI2.csproj",
       "projectName": "ProjectPI2",
-      "projectPath": "C:\\Users\\Giovani\\Desktop\\UnivespPI2\\ProjectPI2\\ProjectPI2.csproj",
-      "packagesPath": "C:\\Users\\Giovani\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Giovani\\Desktop\\UnivespPI2\\ProjectPI2\\obj\\",
+      "projectPath": "/home/hygor/Development/PI02-2022/UnivespPI2/ProjectPI2/ProjectPI2.csproj",
+      "packagesPath": "/home/hygor/.nuget/packages/",
+      "outputPath": "/home/hygor/Development/PI02-2022/UnivespPI2/ProjectPI2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Giovani\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/hygor/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -53,6 +53,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.2, 6.0.2]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -61,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
       }
     }
   }
