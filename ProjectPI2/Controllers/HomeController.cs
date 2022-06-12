@@ -1,15 +1,19 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ProjectPI2.Models;
+using WebPostgreSQL.Models; // banco de dados
 
 namespace ProjectPI2.Controllers;
 
 public class HomeController : Controller
 {
+    private readonly Contexto database; // banco de dados
+
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, Contexto database) //( banco de dados)
     {
+        this.database = database; // banco de dados
         _logger = logger;
     }
 
