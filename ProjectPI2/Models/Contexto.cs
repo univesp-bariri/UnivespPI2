@@ -19,25 +19,26 @@ namespace WebPostgreSQL.Models
         public DbSet<local> Locals {get; set;}
         public DbSet<categoria> Categorias {get; set;}
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<usuario>().HasData(
-                new usuario
-                {
-                    id = 1,
-                    username = "maximus",
-                    senha = "123456",
-                    email = "maximus@mail.com",
-                    nome = "Maximus Merindius",
-                    endereco = "Rua Joaquina DAgua, 6666",
-                    cep = "0226-066",
-                    cidade = "São Paulo",
-                    estado = "SP",
-                    pais = "Brasil",
-                    pjuridica = false,
-                    cpf = "666.666.666.66",
-                    candidatoId = 1
-                });
-        }
+        // inserir dados no BD
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     modelBuilder.Entity<usuario>().HasData(
+        //         new usuario
+        //         {
+        //             id = 1,
+        //             username = "maximus",
+        //             senha = "123456",
+        //             email = "maximus@mail.com",
+        //             nome = "Maximus Merindius",
+        //             endereco = "Rua Joaquina DAgua, 6666",
+        //             cep = "0226-066",
+        //             cidade = "São Paulo",
+        //             estado = "SP",
+        //             pais = "Brasil",
+        //             pjuridica = false,
+        //             cpf = "666.666.666.66",
+        //             candidatoId = 1
+        //         });
+        // }
     }
 }
