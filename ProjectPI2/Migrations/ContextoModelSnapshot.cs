@@ -261,25 +261,6 @@ namespace ProjectPI2.Migrations
                     b.HasIndex("contratanteId");
 
                     b.ToTable("usuario");
-
-                    b.HasData(
-                        new
-                        {
-                            id = 1,
-                            candidatoId = 1,
-                            cep = "0226-066",
-                            cidade = "São Paulo",
-                            contratanteId = 0,
-                            cpf = "666.666.666.66",
-                            email = "maximus@mail.com",
-                            endereco = "Rua Joaquina DAgua, 6666",
-                            estado = "SP",
-                            nome = "Maximus Merindius",
-                            pais = "Brasil",
-                            pjuridica = false,
-                            senha = "123456",
-                            username = "maximus"
-                        });
                 });
 
             modelBuilder.Entity("ProjectPI2.Models.candidato", b =>
