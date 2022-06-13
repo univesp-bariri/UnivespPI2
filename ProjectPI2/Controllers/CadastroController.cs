@@ -15,5 +15,15 @@ namespace ProjectPI2.Controllers
         {
             return View();
         }
+        public IActionResult Salvar(usuario user)
+        {
+            if(user != null)
+            {
+                _database.Usuarios.Add(user);
+                _database.SaveChanges();
+                return View("Bem sucedido");
+            }
+            return View("Mal sucedido");
+        }
     }
 }

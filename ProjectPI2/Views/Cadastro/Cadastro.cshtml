@@ -1,8 +1,49 @@
-﻿@model usuario
+﻿@model ProjectPI2.Models.usuario
 
 @{
     ViewData["Title"] = "Cadastro";
 }
-<h1>@ViewData["Title"]</h1>
 
+<h2>@ViewData["Title"]</h2>
+<hr>
+<form class="form-horizontal" asp-action="Salvar" asp-controller="Cadastro" method="post">
+    <input type="hidden" asp-for="id" value="0">
 
+    <label asp-for="username">Username:</label>
+    <input type="text" asp-for="username" placeholder="JoaqSilvo666" class="form-control"> <br>
+
+    <label asp-for="nome">Nome:</label>
+    <input type="text" asp-for="nome" placeholder="Joaquim da Silva" class="form-control"> <br>
+
+    <label asp-for="email">Email:</label>
+    <input type="text" asp-for="email" placeholder="joaquim_silva@mail.com" class="form-control"> <br>
+
+    <label asp-for="endereco">Endereço:</label>
+    <input type="text" asp-for="endereco" placeholder="Rua dos Sertanistas, 666" class="form-control"> <br>
+
+    <label asp-for="cep">CEP:</label>
+    <input type="text" asp-for="cep" placeholder="00000-000" class="form-control"> <br>
+
+    <label asp-for="cidade">Cidade:</label>
+    <input type="text" asp-for="cidade" placeholder="São Paulo" class="form-control"> <br>
+
+    <label asp-for="estado">Estado:</label>
+    <input type="text" asp-for="estado" placeholder="SP" class="form-control"> <br>
+
+    <label asp-for="pais">País:</label>
+    <input type="text" asp-for="pais" placeholder="Brasil" class="form-control"> <br>
+
+    <label asp-for="pjuridica">Tipo:</label>
+    <br>
+    <input type="radio" asp-for="pjuridica" value="true">Pessoa Jurídica<br>
+    <input type="radio" asp-for="pjuridica" value="false">Pessoa Física<br>
+    <br>
+
+    <label asp-for="cnpj">CNPJ:</label>
+    <input type="text" asp-for="cnpj" placeholder="XX.XXX.XXX/0001-XX" class="form-control"> <br>
+
+    <label asp-for="cpf">CPF:</label>
+    <input type="text" asp-for="cpf" placeholder="XXX.XXX.XXX-XX" class="form-control"> <br>
+
+    <button class="btn btn-success">Salvar</button>
+</form>
