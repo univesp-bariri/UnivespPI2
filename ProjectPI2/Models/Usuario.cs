@@ -68,6 +68,7 @@ namespace ProjectPI2.Models
         [Display(Name = "CPF")]
         public string cpf { get; set; }
 
+/*
         [ForeignKey("Contratante")]
         public int contratanteId { get; set; }
         public virtual contratante Contratante { get; set; }
@@ -75,5 +76,6 @@ namespace ProjectPI2.Models
         [ForeignKey("Candidato")]
         public int candidatoId { get; set; }
         public virtual candidato Candidato { get; set; }
+        */
     }
 }
