@@ -82,14 +82,9 @@ namespace ProjectPI2.Migrations
                     b.Property<string>("nome")
                         .HasColumnType("varchar(50)");
 
-                    b.Property<int>("trabalhoId")
-                        .HasColumnType("integer");
-
                     b.HasKey("id");
 
                     b.HasIndex("candidaturaId");
-
-                    b.HasIndex("trabalhoId");
 
                     b.ToTable("categoria");
                 });
@@ -203,9 +198,6 @@ namespace ProjectPI2.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<int>("candidatoId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("cep")
                         .IsRequired()
                         .HasColumnType("varchar(8)");
@@ -216,9 +208,6 @@ namespace ProjectPI2.Migrations
 
                     b.Property<string>("cnpj")
                         .HasColumnType("VARCHAR(14)");
-
-                    b.Property<int>("contratanteId")
-                        .HasColumnType("integer");
 
                     b.Property<string>("cpf")
                         .HasColumnType("VARCHAR(11)");
@@ -256,10 +245,6 @@ namespace ProjectPI2.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("candidatoId");
-
-                    b.HasIndex("contratanteId");
-
                     b.ToTable("usuario");
                 });
 
@@ -282,15 +267,7 @@ namespace ProjectPI2.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ProjectPI2.Models.trabalho", "Trabalho")
-                        .WithMany()
-                        .HasForeignKey("trabalhoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Candidatura");
-
-                    b.Navigation("Trabalho");
                 });
 
             modelBuilder.Entity("ProjectPI2.Models.contratante", b =>
@@ -340,25 +317,6 @@ namespace ProjectPI2.Migrations
                     b.Navigation("Candidatura");
 
                     b.Navigation("Categoria");
-                });
-
-            modelBuilder.Entity("ProjectPI2.Models.usuario", b =>
-                {
-                    b.HasOne("ProjectPI2.Models.candidato", "Candidato")
-                        .WithMany()
-                        .HasForeignKey("candidatoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ProjectPI2.Models.contratante", "Contratante")
-                        .WithMany()
-                        .HasForeignKey("contratanteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Candidato");
-
-                    b.Navigation("Contratante");
                 });
 
             modelBuilder.Entity("ProjectPI2.Models.trabalho", b =>

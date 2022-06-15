@@ -17,8 +17,10 @@ namespace ProjectPI2.Models
         public int candidaturaId { get; set; }
         public virtual candidatura Candidatura { get; set; }
 
+/*
         [ForeignKey("Trabalho")]
         public int trabalhoId { get; set; }
         public virtual trabalho Trabalho { get; set; }
+        */
     }
 }
