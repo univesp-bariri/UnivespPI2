@@ -1,5 +1,9 @@
 ﻿@model ProjectPI2.Models.usuario
-
+<style>
+    span{
+        color: red;
+    }
+</style>
 @{
     ViewData["Title"] = "Cadastro";
 }
@@ -11,30 +15,48 @@
 
     <label asp-for="username">Username:</label>
     <input type="text" asp-for="username" placeholder="JoaqSilvo666" class="form-control"> <br>
+    <span asp-validation-for="username"></span>
+    <br>
 
     <label asp-for="senha">Senha:</label>
-    <input type="text" asp-for="senha" placeholder="JoaqSilvo666" class="form-control"> <br>
+    <input type="text" asp-for="senha" placeholder="******" class="form-control"> <br>
+    <span asp-validation-for="senha"></span>
+    <br>
 
     <label asp-for="nome">Nome:</label>
     <input type="text" asp-for="nome" placeholder="Joaquim da Silva" class="form-control"> <br>
+    <span asp-validation-for="nome"></span>
+    <br>
 
     <label asp-for="email">Email:</label>
     <input type="text" asp-for="email" placeholder="joaquim_silva@mail.com" class="form-control"> <br>
+    <span asp-validation-for="email"></span>
+    <br>
 
     <label asp-for="endereco">Endereço:</label>
     <input type="text" asp-for="endereco" placeholder="Rua dos Sertanistas, 666" class="form-control"> <br>
+    <span asp-validation-for="endereco"></span>
+    <br>
 
     <label asp-for="cep">CEP:</label>
-    <input type="text" asp-for="cep" placeholder="00000-000" class="form-control"> <br>
+    <input type="text" asp-for="cep" placeholder="00000000" class="form-control"> <br>
+    <span asp-validation-for="cep"></span>
+    <br>
 
     <label asp-for="cidade">Cidade:</label>
     <input type="text" asp-for="cidade" placeholder="São Paulo" class="form-control"> <br>
+    <span asp-validation-for="cidade"></span>
+    <br>
 
     <label asp-for="estado">Estado:</label>
     <input type="text" asp-for="estado" placeholder="SP" class="form-control"> <br>
+    <span asp-validation-for="estado"></span>
+    <br>
 
     <label asp-for="pais">País:</label>
     <input type="text" asp-for="pais" placeholder="Brasil" class="form-control"> <br>
+    <span asp-validation-for="pais"></span>
+    <br>
 
     <label asp-for="pjuridica">Tipo:</label>
     <br>
@@ -43,10 +65,14 @@
     <br>
 
     <label asp-for="cnpj">CNPJ:</label>
-    <input type="text" asp-for="cnpj" placeholder="XX.XXX.XXX/0001-XX" class="form-control"> <br>
+    <input type="text" asp-for="cnpj" placeholder="Sem traços ou pontos" class="form-control"> <br>
+    <span asp-validation-for="cnpj"></span>
+    <br>
 
     <label asp-for="cpf">CPF:</label>
-    <input type="text" asp-for="cpf" placeholder="XXX.XXX.XXX-XX" class="form-control"> <br>
+    <input type="text" asp-for="cpf" placeholder="Sem traços ou pontos" class="form-control"> <br>
+    <span asp-validation-for="cpf"></span>
+    <br>
 
     <button class="btn btn-success">Salvar</button>
 </form>

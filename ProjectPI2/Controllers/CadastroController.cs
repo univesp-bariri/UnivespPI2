@@ -17,13 +17,13 @@ namespace ProjectPI2.Controllers
         }
         public IActionResult Salvar(usuario user)
         {
-            if(user != null)
+            if(ModelState.IsValid)
             {
                 _database.Usuarios.Add(user);
                 _database.SaveChanges();
-                return View("Bem sucedido");
+                return Content("Bem sucedido");
             }
-            return View("Mal sucedido");
+            return View("../Cadastro/Cadastro");
         }
     }
 }
