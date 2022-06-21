@@ -21,6 +21,18 @@ namespace ProjectPI2.Controllers
             {
                 _database.Usuarios.Add(user);
                 _database.SaveChanges();
+
+                var userCand = new candidato();
+                userCand.usuarioId = user.id;
+                userCand.Usuario = user;
+                _database.Candidatos.Add(userCand);
+
+                var userContr = new contratante();
+                userContr.usuarioId = user.id;
+                userContr.Usuario = user;
+                _database.Contratantes.Add(userContr);
+
+                _database.SaveChanges();
                 return Content("Bem sucedido");
             }
             return View("../Cadastro/Cadastro");
