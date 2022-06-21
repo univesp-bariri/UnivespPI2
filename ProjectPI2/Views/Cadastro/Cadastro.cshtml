@@ -19,7 +19,7 @@
     <br>
 
     <label asp-for="senha">Senha:</label>
-    <input type="text" asp-for="senha" placeholder="******" class="form-control"> <br>
+    <input type="password" asp-for="senha" placeholder="******" class="form-control"> <br>
     <span asp-validation-for="senha"></span>
     <br>
 
@@ -29,9 +29,14 @@
     <br>
 
     <label asp-for="email">Email:</label>
-    <input type="text" asp-for="email" placeholder="joaquim_silva@mail.com" class="form-control"> <br>
+    <input type="email" asp-for="email" placeholder="joaquim_silva@mail.com" class="form-control"> <br>
     <span asp-validation-for="email"></span>
     <br>
+
+    @* <label asp-for="telefone">Email:</label>
+    <input type="tel" asp-for="telefone" placeholder="955554444" class="form-control"> <br>
+    <span asp-validation-for="telefone"></span>
+    <br> *@
 
     <label asp-for="endereco">Endereço:</label>
     <input type="text" asp-for="endereco" placeholder="Rua dos Sertanistas, 666" class="form-control"> <br>
@@ -39,7 +44,7 @@
     <br>
 
     <label asp-for="cep">CEP:</label>
-    <input type="text" asp-for="cep" placeholder="00000000" class="form-control"> <br>
+    <input type="number" asp-for="cep" placeholder="00000000" class="form-control"> <br>
     <span asp-validation-for="cep"></span>
     <br>
 
@@ -65,12 +70,12 @@
     <br>
 
     <label asp-for="cnpj">CNPJ:</label>
-    <input type="text" asp-for="cnpj" placeholder="Sem traços ou pontos" class="form-control"> <br>
+    <input type="number" asp-for="cnpj" placeholder="Sem traços ou pontos" class="form-control"> <br>
     <span asp-validation-for="cnpj"></span>
     <br>
 
     <label asp-for="cpf">CPF:</label>
-    <input type="text" asp-for="cpf" placeholder="Sem traços ou pontos" class="form-control"> <br>
+    <input type="number" asp-for="cpf" placeholder="Sem traços ou pontos" class="form-control"> <br>
     <span asp-validation-for="cpf"></span>
     <br>
 

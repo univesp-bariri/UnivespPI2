@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjectPI2.Models
 {
@@ -33,6 +34,8 @@ namespace ProjectPI2.Models
 
         // [Required(ErrorMessage ="O telefone é obrigatório.")]
         // [Column(TypeName = "varchar(11)")]
+        // [MaxLength(11)]
+        // [MinLength(10, ErrorMessage = "Telefone muito curto")]
         // [Phone(ErrorMessage ="Telefone inválido.")]
         // [Display(Name = "Telefone")]
         // public string telefone { get; set; }
