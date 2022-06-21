@@ -15,7 +15,7 @@ namespace ProjectPI2.Controllers
         {
             return View();
         }
-        public IActionResult Salvar(usuario user)
+        public IActionResult Salvar(usuario user, candidato cand)
         {
             if(ModelState.IsValid)
             {
