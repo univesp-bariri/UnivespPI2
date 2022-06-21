@@ -65,19 +65,51 @@
 
     <label asp-for="pjuridica">Tipo:</label>
     <br>
-    <input type="radio" asp-for="pjuridica" value="true">Pessoa Jurídica<br>
-    <input type="radio" asp-for="pjuridica" value="false">Pessoa Física<br>
+    <input type="radio" asp-for="pjuridica" id="sim" value="true">Pessoa Jurídica<br>
+    <input type="radio" asp-for="pjuridica" id="nao" value="false">Pessoa Física<br>
     <br>
 
     <label asp-for="cnpj">CNPJ:</label>
-    <input type="number" asp-for="cnpj" placeholder="Sem traços ou pontos" class="form-control"> <br>
+    <input disabled type="number" asp-for="cnpj" placeholder="Sem traços ou pontos" class="form-control" name="cnpj"> <br>
     <span asp-validation-for="cnpj"></span>
     <br>
 
     <label asp-for="cpf">CPF:</label>
-    <input type="number" asp-for="cpf" placeholder="Sem traços ou pontos" class="form-control"> <br>
+    <input disabled type="number" asp-for="cpf" placeholder="Sem traços ou pontos" class="form-control" name="cpf"> <br>
     <span asp-validation-for="cpf"></span>
     <br>
 
     <button class="btn btn-success">Salvar</button>
 </form>
+
+@* SCRIPT QUE HABILITA INPUT DE CPF OU CNPJ DE ACORDO COM SELEÇÃO DO RADIO *@
+<script>
+    window.onload = () => {
+   var inputCNPJ = document.getElementById('cnpj');
+   var inputCPF = document.getElementById('cpf');
+   var radio_cnpjYes = document.getElementById('sim');
+   var radio_cnpjNo = document.getElementById('nao');
+    radio_cnpjYes.addEventListener('click', (e) => {
+        var radio = e.currentTarget;
+        if(radio.checked == true) {
+          inputCNPJ.disabled=false;
+          inputCPF.disabled=true;
+          inputCNPJ.focus();
+        } else {
+         inputCNPJ.disabled=true;
+          inputCNPJ.value='';
+        }
+    });
+     radio_cnpjNo.addEventListener('click', (e) => {
+        var radio = e.currentTarget;
+        if(radio.checked == true) {
+          inputCNPJ.value='';
+          inputCNPJ.disabled=true;
+          inputCPF.disabled=false;
+           inputCNPJ.focus();
+        } else {
+         inputCNPJ.disabled=false;
+        }
+    });
+}
+</script>
