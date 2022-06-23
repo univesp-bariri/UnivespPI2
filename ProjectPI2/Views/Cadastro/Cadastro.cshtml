@@ -1,0 +1,111 @@
+﻿@model ProjectPI2.Models.usuario
+
+<style>
+    span{
+        color: red;
+    }
+</style>
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr>
+<form class="form-horizontal" asp-action="Salvar" asp-controller="Cadastro" method="post">
+    <input type="hidden" asp-for="id" value="0">
+
+    <label asp-for="username">Username:</label>
+    <input type="text" asp-for="username" placeholder="JoaqSilvo666" class="form-control"> <br>
+    <span asp-validation-for="username"></span>
+    <br>
+
+    <label asp-for="senha">Senha:</label>
+    <input type="password" asp-for="senha" placeholder="******" class="form-control"> <br>
+    <span asp-validation-for="senha"></span>
+    <br>
+
+    <label asp-for="nome">Nome:</label>
+    <input type="text" asp-for="nome" placeholder="Joaquim da Silva" class="form-control"> <br>
+    <span asp-validation-for="nome"></span>
+    <br>
+
+    <label asp-for="email">Email:</label>
+    <input type="email" asp-for="email" placeholder="joaquim_silva@mail.com" class="form-control"> <br>
+    <span asp-validation-for="email"></span>
+    <br>
+
+    @* <label asp-for="telefone">Email:</label>
+    <input type="tel" asp-for="telefone" placeholder="955554444" class="form-control"> <br>
+    <span asp-validation-for="telefone"></span>
+    <br> *@
+
+    <label asp-for="endereco">Endereço:</label>
+    <input type="text" asp-for="endereco" placeholder="Rua dos Sertanistas, 666" class="form-control"> <br>
+    <span asp-validation-for="endereco"></span>
+    <br>
+
+    <label asp-for="cep">CEP:</label>
+    <input type="number" asp-for="cep" placeholder="00000000" class="form-control"> <br>
+    <span asp-validation-for="cep"></span>
+    <br>
+
+    <label asp-for="cidade">Cidade:</label>
+    <input type="text" asp-for="cidade" placeholder="São Paulo" class="form-control"> <br>
+    <span asp-validation-for="cidade"></span>
+    <br>
+
+    <label asp-for="estado">Estado:</label>
+    <input type="text" asp-for="estado" placeholder="SP" class="form-control"> <br>
+    <span asp-validation-for="estado"></span>
+    <br>
+
+    <label asp-for="pais">País:</label>
+    <input type="text" asp-for="pais" placeholder="Brasil" class="form-control"> <br>
+    <span asp-validation-for="pais"></span>
+    <br>
+
+    <label asp-for="pjuridica">Tipo:</label>
+    <br>
+    <input type="radio" asp-for="pjuridica" id="sim" value="true">Pessoa Jurídica<br>
+    <input type="radio" asp-for="pjuridica" id="nao" value="false">Pessoa Física<br>
+    <br>
+
+    <label asp-for="cnpj">CNPJ:</label>
+    <input disabled type="number" asp-for="cnpj" placeholder="Sem traços ou pontos" class="form-control" name="cnpj"> <br>
+    <span asp-validation-for="cnpj"></span>
+    <br>
+
+    <label asp-for="cpf">CPF:</label>
+    <input disabled type="number" asp-for="cpf" placeholder="Sem traços ou pontos" class="form-control" name="cpf"> <br>
+    <span asp-validation-for="cpf"></span>
+    <br>
+
+    <button class="btn btn-success">Salvar</button>
+</form>
+
+@* SCRIPT QUE HABILITA INPUT DE CPF OU CNPJ DE ACORDO COM SELEÇÃO DO RADIO *@
+<script>
+    window.onload = () => {
+   var inputCNPJ = document.getElementById('cnpj');
+   var inputCPF = document.getElementById('cpf');
+   var radio_cnpjYes = document.getElementById('sim');
+   var radio_cnpjNo = document.getElementById('nao');
+    radio_cnpjYes.addEventListener('click', (e) => {
+        var radio = e.currentTarget;
+        if(radio.checked == true) {
+          inputCNPJ.disabled=false;
+          inputCPF.disabled=true;
+          inputCNPJ.focus();
+        }
+    });
+     radio_cnpjNo.addEventListener('click', (e) => {
+        var radio = e.currentTarget;
+        if(radio.checked == true) {
+          inputCNPJ.value='';
+          inputCNPJ.disabled=true;
+          inputCPF.disabled=false;
+          inputCPF.focus();
+        }
+    });
+}
+</script>
