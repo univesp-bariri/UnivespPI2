@@ -15,13 +15,13 @@ namespace ProjectPI2.Controllers
         {
             return View();
         }
-        public IActionResult Salvar(usuario user, candidato cand)
+        public IActionResult Salvar(usuario user)
         {
             if(ModelState.IsValid)
             {
                 _database.Usuarios.Add(user);
                 _database.SaveChanges();
-
+/*
                 var userCand = new candidato();
                 userCand.usuarioId = user.id;
                 userCand.Usuario = user;
@@ -31,7 +31,7 @@ namespace ProjectPI2.Controllers
                 userContr.usuarioId = user.id;
                 userContr.Usuario = user;
                 _database.Contratantes.Add(userContr);
-
+*/
                 _database.SaveChanges();
                 return Content("Bem sucedido");
             }
