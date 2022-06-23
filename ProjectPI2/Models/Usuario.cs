@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -85,7 +86,7 @@ namespace ProjectPI2.Models
         [Required()]
         [Column(TypeName = "Boolean  DEFAULT FALSE")]
         [Display(Name = "Pessoa Jurídia")]
-        public Boolean pjuridica { get; set; }
+        public bool pjuridica { get; set; }
 
         [Column(TypeName = "VARCHAR(14)")]
         [MaxLength(14)]
@@ -98,6 +99,5 @@ namespace ProjectPI2.Models
         [MinLength(11, ErrorMessage = "CPF muito curto")]
         [Display(Name = "CPF")]
         public string cpf { get; set; }
-
     }
 }

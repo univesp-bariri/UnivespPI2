@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -21,7 +22,7 @@ namespace ProjectPI2.Models
         [Required()]
         [Column(TypeName = "Boolean  DEFAULT FALSE")]
         [Display(Name = "disponibilidade")]
-        public Boolean disponibilidade { get; set; }
+        public bool disponibilidade { get; set; }
 
         [ForeignKey("usuarioId")]
         [Display(Name = "ID usuario")]

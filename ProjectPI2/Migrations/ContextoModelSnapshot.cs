@@ -144,6 +144,11 @@ namespace ProjectPI2.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("varchar(20)");
 
+                    b.Property<string>("telefone")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("varchar(11)");
+
                     b.Property<string>("username")
                         .IsRequired()
                         .HasMaxLength(20)
