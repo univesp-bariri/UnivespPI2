@@ -1,0 +1,75 @@
+@model ProjectPI2.Models.anuncio
+
+<style>
+    span{
+        color: red;
+    }
+</style>
+@{
+    ViewData["Title"] = "Cadastro de Anúncio";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr>
+<form class="form-horizontal" asp-action="Salvar" asp-controller="Anuncio" method="post">
+    <input type="hidden" asp-for="id" value="0">
+
+    <label asp-for="data">Data do Anúncio:</label>
+    <input type="date" asp-for="data" class="form-control"> <br>
+    <span asp-validation-for="data"></span>
+    <br>
+
+    <label asp-for="custo">Custo por hora:</label>
+    <input type="number" asp-for="custo" placeholder="R$ 22.50" class="form-control"> <br>
+    <span asp-validation-for="custo"></span>
+    <br>
+
+    <label asp-for="disponibilidade">Ativo:</label>
+    <br>
+    <input type="radio" asp-for="disponibilidade" id="sim" value="true">Sim<br>
+    <input type="radio" asp-for="disponibilidade" id="nao" value="false">Não<br>
+    <br>
+
+    @* <label asp-for="nome">Nome:</label>
+    <input type="text" asp-for="nome" placeholder="Joaquim da Silva" class="form-control"> <br>
+    <span asp-validation-for="nome"></span>
+    <br>
+
+    <label asp-for="email">Email:</label>
+    <input type="email" asp-for="email" placeholder="joaquim_silva@mail.com" class="form-control"> <br>
+    <span asp-validation-for="email"></span>
+    <br>
+
+    @* <label asp-for="telefone">Email:</label>
+    <input type="tel" asp-for="telefone" placeholder="955554444" class="form-control"> <br>
+    <span asp-validation-for="telefone"></span>
+    <br>
+
+    <label asp-for="endereco">Endereço:</label>
+    <input type="text" asp-for="endereco" placeholder="Rua dos Sertanistas, 666" class="form-control"> <br>
+    <span asp-validation-for="endereco"></span>
+    <br>
+
+    <label asp-for="cep">CEP:</label>
+    <input type="number" asp-for="cep" placeholder="00000000" class="form-control"> <br>
+    <span asp-validation-for="cep"></span>
+    <br>
+
+    <label asp-for="cidade">Cidade:</label>
+    <input type="text" asp-for="cidade" placeholder="São Paulo" class="form-control"> <br>
+    <span asp-validation-for="cidade"></span>
+    <br>
+
+    <label asp-for="estado">Estado:</label>
+    <input type="text" asp-for="estado" placeholder="SP" class="form-control"> <br>
+    <span asp-validation-for="estado"></span>
+    <br>
+
+    <label asp-for="pais">País:</label>
+    <input type="text" asp-for="pais" placeholder="Brasil" class="form-control"> <br>
+    <span asp-validation-for="pais"></span>
+    <br>
+*@
+
+    <button class="btn btn-success">Salvar</button>
+</form>

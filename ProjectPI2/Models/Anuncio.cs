@@ -12,7 +12,7 @@ namespace ProjectPI2.Models
         public int id { get; set; }
 
         [Column(TypeName = "varchar(100)")]
-        [Display(Name = "descricao")]
+        [Display(Name = "Data")]
         public DateTime data { get; set; }
 
         [Column(TypeName = "DOUBLE PRECISION")]
