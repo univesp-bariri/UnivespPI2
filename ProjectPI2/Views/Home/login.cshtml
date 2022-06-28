@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Home Page";
     Layout = null;
 }
@@ -43,8 +43,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll login-btn">
-                        <a href="@Url.Action("login", "Home")">Entrar</a>
+                        <a href="@Url.Action("ad", "Home")">Anunciar</a>
+                    </li>                    
+                    <li class="page-scroll login-btn">
+                        <a href="@Url.Action("profile", "Home")">Perfil</a>
                     </li>
+                    <li class="page-scroll login-btn">
+                        <a href="@Url.Action("Index", "Home")">Sair</a>
+                    </li>
+
+
 
                 </ul>
             </div>

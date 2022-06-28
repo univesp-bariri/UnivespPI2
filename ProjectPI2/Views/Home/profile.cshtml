@@ -1,0 +1,198 @@
+@model ProjectPI2.Models.usuario
+@{
+    ViewData["Title"] = "Profile";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Páginas Amarelas</title>
+
+    <link rel="shortcut icon" href="~/img/favicon.ico" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/font-awesome.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/profile.css" type="text/css" asp-append-version="true"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" asp-append-version="true">
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+  
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("login", "Home")">
+                    <img class="logo" src="~/img/Logo_PA.svg" alt="Logotipo">
+                    <!--<i class="fa fa-bicycle"></i>  <span class="light">Páginas</span> Amarelas -->
+                </a>
+            </div>
+
+
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+
+                    <li class="hidden">
+                        <a href="@Url.Action("login", "Home")"></a>
+                    </li>
+                    <li class="page-scroll login-btn">
+                        <a href="@Url.Action("ad", "Home")">Anunciar</a>
+                    </li>                    
+                    <li class="page-scroll login-btn">
+                        <a href="@Url.Action("profile", "Home")">Perfil</a>
+                    </li>
+                    <li class="page-scroll login-btn">
+                        <a href="@Url.Action("Index", "Home")">Sair</a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <section id="profile" class="profile-section container">
+
+        <div class="container-xl px-4 mt-4">
+            <div class="row">
+                <div class="col-xl-4">
+                </div>
+                <div class="col-xl-8">
+
+                    <div class="prof mb-4">
+                        <div class="prof-header">Detalhes da conta</div>
+                        <div class="prof-body">
+                            <form>
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputUsername">Nome de usuário</label>
+                                        <input class="form-control" id="inputUsername" type="text" placeholder="Digite o nome de usuário desejado">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputLastName">Senha</label>
+                                        <input class="form-control" id="inputLastName" type="text" placeholder="Cadastre uma a senha válida">
+                                    </div>
+                                </div>                                
+                                <div class="mb-3">
+                                        <label class="small mb-1" for="inputFirstName">Nome Completo</label>
+                                        <input class="form-control" id="inputName" type="text" placeholder="Digite seu nome completo">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                                    <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com">
+                                </div>
+                                
+                                <div class="row gx-3 mb-3">
+
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputOrgName">Estado</label>
+                                        <select name="sources" id="estado" class="form-control-select" placeholder="Source Type">
+                                            <option value="categorias"></option>
+                                            <option value="word">Word</option>
+                                            <option value="hashtag">Hashtag</option>
+                                        </select>
+                                    </div>
+  
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputLocation">Cidade</label>
+                                        <select name="sources" id="cidade" class="form-control-select" placeholder="Source Type">
+                                            <option value="categorias"></option>
+                                            <option value="word">Word</option>
+                                            <option value="hashtag">Hashtag</option>
+                                         </select>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputCEP">CEP</label>
+                                        <input class="form-control" id="inputCEP" type="cep" placeholder="Digite o CEP">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputAddress">Endereço</label>
+                                        <input class="form-control" id="inputAddress" type="text" name="address" placeholder="Digite o endereço">
+                                    </div>
+                                </div>                                
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-6">
+                                        <input type="radio" asp-for="pjuridica" id="sim" value="true">
+                                        <label class="small mb-1" for="inputCNPJ">Pessoa Jurídica</label>
+                                        <input id="cnpj" disabled type="text" asp-for="cnpj" placeholder="Sem traços ou pontos" class="form-control" name="cnpj">
+                                        <span asp-validation-for="cnpj"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="radio" asp-for="pjuridica" id="nao" value="false">
+                                        <label class="small mb-1" for="inputCPF">Pessoa Física</label>
+                                        <input id="cpf" disabled type="text" asp-for="cpf" placeholder="Sem traços ou pontos" class="form-control" name="cpf"> 
+                                        <span asp-validation-for="cnpj"></span>
+                                    </div>
+                                </div>                              
+                                <div class="row gx-3 mb-3">
+                                    <button class="btn btn-primary" type="button">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+    <dir class="fix-footer"> </dir>
+
+    <footer id= "footer" class="brand">
+        <a class="fa">
+            <span class="light">© 2022 | <img class="logo" src="~/img/Logo_PA_footer.svg" alt="Logotipo">
+        </a>
+    </footer>
+
+        @* SCRIPT QUE HABILITA INPUT DE CPF OU CNPJ DE ACORDO COM SELEÇÃO DO RADIO *@
+        <script>
+        window.onload = () => {
+        var inputCNPJ = document.getElementById('cnpj');
+        var inputCPF = document.getElementById('cpf');
+        var radio_cnpjYes = document.getElementById('sim');
+        var radio_cnpjNo = document.getElementById('nao');
+            radio_cnpjYes.addEventListener('click', (e) => {
+                var radio = e.currentTarget;
+                if(radio.checked == true) {
+                inputCNPJ.disabled=false;
+                inputCPF.disabled=true;
+                inputCNPJ.focus();
+                }
+            });
+            radio_cnpjNo.addEventListener('click', (e) => {
+                var radio = e.currentTarget;
+                if(radio.checked == true) {
+                inputCNPJ.value='';
+                inputCNPJ.disabled=true;
+                inputCPF.disabled=false;
+                inputCPF.focus();
+                }
+            });
+        }
+
+    </script>
+    <script src="~/js/jquery.js" ></script>
+    <script src="~/js/bootstrap.js" ></script>
+    <script src="~/js/jquery.easing.js" ></script>
+    <script src="~/js/style.js" ></script>
+
+</body>
+
+</html>
