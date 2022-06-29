@@ -13,7 +13,13 @@
     <meta name="author" content="">
     
     <title>Páginas Amarelas</title>
-
+    <link media="screen" rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css" >
+    <link media="screen" rel="stylesheet" href='https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.css' >
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="~/img/favicon.ico" asp-append-version="true">
     <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/font-awesome.css" type="text/css" asp-append-version="true">
@@ -43,7 +49,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll login-btn">
-                        <a href="@Url.Action("login", "Home")">Entrar</a>
+                        <a href="@Url.Action("Cadastro", "Cadastro")">Cadastrar</a>                        
+                    </li>
+                    <li class="page-scroll login-btn">
+                        <a href="@Url.Action("login", "Home")">Entrar</a>                        
                     </li>
 
                 </ul>
@@ -64,17 +73,17 @@
                 <div class="filter-container">
                     <div class="filters">
                         <select name="sources" id="categorias" class="custom-select sources" placeholder="Source Type">
-                            <option value="categorias">Categorias</option>
+                            <option value="categorias">Categoria</option>
                             <option value="word">Word</option>
                             <option value="hashtag">Hashtag</option>
                         </select>
                         <select name="sources" id="estados" class="custom-select sources" placeholder="Source Type">
-                            <option value="estados">Estados</option>
+                            <option value="estados">Estado</option>
                             <option value="word">Word</option>
                             <option value="hashtag">Hashtag</option>
                         </select>
                         <select name="sources" id="cidades" class="custom-select sources" placeholder="Source Type">
-                            <option value="cidades">Cidades</option>
+                            <option value="cidades">Cidade</option>
                             <option value="word">Word</option>
                             <option value="hashtag">Hashtag</option>
                         </select>
@@ -143,6 +152,14 @@
         </a>
     </footer>
 
+    @if (TempData["success"] != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                swal("Usuário criado com sucesso!", '@TempData["success"]', "success");
+            };
+        </script>
+    }
 
 
     <script src="~/js/jquery.js" ></script>

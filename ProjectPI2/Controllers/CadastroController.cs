@@ -21,19 +21,9 @@ namespace ProjectPI2.Controllers
             {
                 _database.Usuarios.Add(user);
                 _database.SaveChanges();
-/*
-                var userCand = new candidato();
-                userCand.usuarioId = user.id;
-                userCand.Usuario = user;
-                _database.Candidatos.Add(userCand);
 
-                var userContr = new contratante();
-                userContr.usuarioId = user.id;
-                userContr.Usuario = user;
-                _database.Contratantes.Add(userContr);
-*/
-                _database.SaveChanges();
-                return Content("Bem sucedido");
+                TempData["success"] = "Faça o login e cadastre seu job.";
+                return RedirectToAction("Index", "Home");
             }
             return View("../Cadastro/Cadastro");
         }

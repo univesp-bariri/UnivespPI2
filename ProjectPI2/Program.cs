@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebPostgreSQL.Models;
+using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 

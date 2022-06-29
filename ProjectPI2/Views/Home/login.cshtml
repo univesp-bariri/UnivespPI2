@@ -13,7 +13,13 @@
     <meta name="author" content="">
     
     <title>Páginas Amarelas</title>
-
+    <link media="screen" rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css" >
+    <link media="screen" rel="stylesheet" href='https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.css' >
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="~/img/favicon.ico" asp-append-version="true">
     <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/font-awesome.css" type="text/css" asp-append-version="true">
@@ -43,11 +49,8 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll login-btn">
-                        <a href="@Url.Action("ad", "Home")">Anunciar</a>
+                        <a href="@Url.Action("NovoAnuncio", "Anuncio")">Anunciar</a>
                     </li>                    
-                    <li class="page-scroll login-btn">
-                        <a href="@Url.Action("profile", "Home")">Perfil</a>
-                    </li>
                     <li class="page-scroll login-btn">
                         <a href="@Url.Action("Index", "Home")">Sair</a>
                     </li>
@@ -151,7 +154,14 @@
         </a>
     </footer>
 
-
+    @if (TempData["successAd"] != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                swal("Anúncio criado com sucesso!", '@TempData["successAd"]', "success");
+            };
+        </script>
+    }
 
     <script src="~/js/jquery.js" ></script>
     <script src="~/js/bootstrap.js" ></script>

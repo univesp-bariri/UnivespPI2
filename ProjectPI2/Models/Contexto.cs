@@ -13,7 +13,6 @@ namespace WebPostgreSQL.Models
 
         public DbSet<usuario> Usuarios {get; set;}
         public DbSet<anuncio> Anuncio {get; set;}
-        public DbSet<profissao> Profissao {get; set;}
         public DbSet<categoria> Categorias {get; set;}
 
         // inserir dados no BD

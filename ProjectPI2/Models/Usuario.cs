@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -31,14 +32,6 @@ namespace ProjectPI2.Models
         [EmailAddress(ErrorMessage ="Email inválido.")]
         [Display(Name = "E-mail")]
         public string email { get; set; }
-
-        // [Required(ErrorMessage ="O telefone é obrigatório.")]
-        // [Column(TypeName = "varchar(11)")]
-        // [MaxLength(11)]
-        // [MinLength(10, ErrorMessage = "Telefone muito curto")]
-        // [Phone(ErrorMessage ="Telefone inválido.")]
-        // [Display(Name = "Telefone")]
-        // public string telefone { get; set; }
 
         [Required(ErrorMessage ="O nome é obrigatório.")]
         [Column(TypeName = "varchar(50)")]
@@ -75,17 +68,10 @@ namespace ProjectPI2.Models
         [Display(Name = "Estado")]
         public string estado { get; set; }
 
-        [Required(ErrorMessage ="O país é obrigatório.")]
-        [MinLength(3, ErrorMessage = "País muito curto")]
-        [Column(TypeName = "varchar(20)")]
-        [MaxLength(20)]
-        [Display(Name = "País")]
-        public string pais { get; set; }
-
         [Required()]
         [Column(TypeName = "Boolean  DEFAULT FALSE")]
         [Display(Name = "Pessoa Jurídia")]
-        public Boolean pjuridica { get; set; }
+        public bool pjuridica { get; set; }
 
         [Column(TypeName = "VARCHAR(14)")]
         [MaxLength(14)]
@@ -98,6 +84,5 @@ namespace ProjectPI2.Models
         [MinLength(11, ErrorMessage = "CPF muito curto")]
         [Display(Name = "CPF")]
         public string cpf { get; set; }
-
     }
 }

@@ -10,6 +10,8 @@ body{margin-top:0;
 
     .prof {
         box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+        max-width: 100%;
+        height: 26em;
     }
     .prof .prof-header {
         font-weight: 500;
@@ -69,7 +71,7 @@ body{margin-top:0;
 
     .col-md-8{
         padding: 0 10px 0 0;
-        width: -moz-available;
+        width: 100%;
     }
 
     .nav-borders .nav-link.active {
@@ -97,12 +99,14 @@ body{margin-top:0;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        transform: scale(1.3);
+        transform: scale(1.2);
     }
 
     .row {
-        display: inline-flex;
         margin: 0 auto;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
     }
 
     .col-xl-4, .col-xl-8 {
@@ -134,14 +138,15 @@ body{margin-top:0;
         border-color: #000;
         font-size: 12px;
         height: 0 auto;
-        vertical-align: middle;
-        width: fit-content;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
         height: fit-content;
         font-size: 10px;
         font-family: Arial;
         font-weight: bold;
         border-style: none;
-        margin-right: 10px;
+        display: block;
     }
 
     .btn-image {
