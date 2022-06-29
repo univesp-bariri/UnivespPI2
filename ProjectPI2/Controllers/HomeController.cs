@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ProjectPI2.Models;
 using WebPostgreSQL.Models; // banco de dados
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProjectPI2.Controllers;
 
@@ -20,6 +22,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        // var anuncios = database.Anuncio.Where(a => a.disponibilidade == true).ToString();
         return View();
     }
 

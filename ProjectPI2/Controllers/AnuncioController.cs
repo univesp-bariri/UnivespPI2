@@ -36,6 +36,5 @@ namespace ProjectPI2.Controllers
             }
             return View("../Anuncio/NovoAnuncio");
     }
-
     }
 }
