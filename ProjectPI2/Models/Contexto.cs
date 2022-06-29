@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProjectPI2.Models;
 
@@ -15,6 +13,7 @@ namespace WebPostgreSQL.Models
 
         public DbSet<usuario> Usuarios {get; set;}
         public DbSet<anuncio> Anuncio {get; set;}
+        // public DbSet<profissao> Profissao {get; set;}
         public DbSet<categoria> Categorias {get; set;}
 
         // inserir dados no BD
