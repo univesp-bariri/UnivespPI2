@@ -1,7 +1,7 @@
 function montaCidade(estado, pais){
 	$.ajax({
 		type:'GET',
-		url:'http://api.londrinaweb.com.br/PUC/Cidades/'+estado+'/'+pais+'/0/10000',
+		url:'https://api.londrinaweb.com.br/PUC/Cidades/'+estado+'/'+pais+'/0/10000',
 		contentType: "application/json; charset=utf-8",
 		dataType: "jsonp",
 		async:false
@@ -23,7 +23,7 @@ function montaCidade(estado, pais){
 function montaUF(pais){
 	$.ajax({
 		type:'GET',
-		url:'http://api.londrinaweb.com.br/PUC/Estados/'+pais+'/0/10000',
+		url:'https://api.londrinaweb.com.br/PUC/Estados/'+pais+'/0/10000',
 		contentType: "application/json; charset=utf-8",
 		dataType: "jsonp",
 		async:false
@@ -52,7 +52,7 @@ function montaUF(pais){
 function montaPais(){
 	$.ajax({
 		type:	'GET',
-		url:	'http://api.londrinaweb.com.br/PUC/Paisesv2/0/1000',
+		url:	'https://api.londrinaweb.com.br/PUC/Paisesv2/0/1000',
 		contentType: "application/json; charset=utf-8",
 		dataType: "jsonp",
 		async:false
