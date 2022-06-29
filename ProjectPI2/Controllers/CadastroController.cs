@@ -22,7 +22,8 @@ namespace ProjectPI2.Controllers
                 _database.Usuarios.Add(user);
                 _database.SaveChanges();
 
-                return Content("Bem sucedido");
+                TempData["success"] = "Faça o login e cadastre seu job.";
+                return RedirectToAction("Index", "Home");
             }
             return View("../Cadastro/Cadastro");
         }

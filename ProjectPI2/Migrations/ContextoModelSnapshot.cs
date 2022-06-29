@@ -16,7 +16,7 @@ namespace ProjectPI2.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.5")
+                .HasAnnotation("ProductVersion", "6.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -29,24 +29,26 @@ namespace ProjectPI2.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<int>("categoriaId")
-                        .HasColumnType("integer");
+                    b.Property<string>("categorianome")
+                        .HasColumnType("varchar(30)");
 
                     b.Property<double>("custo")
                         .HasColumnType("DOUBLE PRECISION");
 
-                    b.Property<string>("data")
-                        .IsRequired()
+                    b.Property<string>("descricao")
                         .HasColumnType("varchar(100)");
 
-                    b.Property<bool>("disponibilidade")
-                        .HasColumnType("Boolean  DEFAULT FALSE");
+                    b.Property<string>("telefone")
+                        .HasColumnType("varchar(15)");
 
-                    b.Property<int>("profissaoId")
-                        .HasColumnType("integer");
+                    b.Property<string>("titulo")
+                        .HasColumnType("varchar(30)");
 
                     b.Property<int>("usuarioId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("whatsapp")
+                        .HasColumnType("varchar(15)");
 
                     b.HasKey("id");
 
@@ -67,22 +69,6 @@ namespace ProjectPI2.Migrations
                     b.HasKey("id");
 
                     b.ToTable("categoria");
-                });
-
-            modelBuilder.Entity("ProjectPI2.Models.profissao", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
-
-                    b.Property<string>("nome")
-                        .HasColumnType("varchar(50)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("profissao");
                 });
 
             modelBuilder.Entity("ProjectPI2.Models.usuario", b =>
@@ -130,11 +116,6 @@ namespace ProjectPI2.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
-
-                    b.Property<string>("pais")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
 
                     b.Property<bool>("pjuridica")
                         .HasColumnType("Boolean  DEFAULT FALSE");

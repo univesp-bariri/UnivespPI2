@@ -1,0 +1,214 @@
+body{margin-top:0;
+    background-color:#f2f6fc;
+    color:#69707a;
+    display: flex;
+    align-items: center;
+    }
+    .img-account-profile {
+        height: 10rem;
+    }
+
+    .prof {
+        box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+        max-width: 100%;
+        height: 26em;
+    }
+    .prof .prof-header {
+        font-weight: 500;
+    }
+    .prof-header:first-child {
+        border-radius: 0.35rem 0.35rem 0 0;
+    }
+    .prof-header {
+        padding: 1rem 1.35rem;
+        margin-bottom: 0;
+        background-color: rgba(33, 40, 50, 0.03);
+        border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    }
+    .form-control, .dataTable-input {
+        display: block;
+        width: 100%;
+        padding: 6px 1.125rem;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1;
+        color: #69707a;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #c5ccd6;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.35rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    
+    .form-control-select {
+        display: block;
+        width: 100%;
+        padding: 8px 1.100rem;
+        padding-left: 0;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1;
+        color: #69707a;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #c5ccd6;
+        border-radius: 0.35rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        font-size: 11px;
+    }
+
+    .gx-3 {
+        padding: 0;
+        width: -moz-available;
+    }
+
+    .mb-3 {
+        margin-right: 10px;
+    }
+
+    .col-md-8{
+        padding: 0 10px 0 0;
+        width: 100%;
+    }
+
+    .nav-borders .nav-link.active {
+        color: #0061f2;
+        border-bottom-color: #0061f2;
+    }
+    .nav-borders .nav-link {
+        color: #69707a;
+        border-bottom-width: 0.125rem;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .profile-section {
+        width: 50%;
+    }
+
+    .container-xl {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        transform: scale(1.2);
+    }
+
+    .row {
+        margin: 0 auto;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .col-xl-4, .col-xl-8 {
+        display: inline-block;
+        margin: 10px;;
+    }
+
+    .prof-body {
+        padding: 20px;
+    }
+
+    .prof-body form {
+        width: 400px;
+    }
+
+    .col-md-6 {
+        padding-left: 0;
+    }
+
+    .small {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    } 
+
+    .btn {
+        margin-top: 35px;
+        background-color: #ffcd00;
+        color: #000;
+        border-color: #000;
+        font-size: 12px;
+        height: 0 auto;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        height: fit-content;
+        font-size: 10px;
+        font-family: Arial;
+        font-weight: bold;
+        border-style: none;
+        display: block;
+    }
+
+    .btn-image {
+        margin-top: 10px;
+    }
+
+    .btn:hover {
+        background-color: #000;
+        color: #ffcd00;
+        font-weight: bold;
+    }
+
+    .btn:focus {
+        background-color: #ffcd00;
+        color: #000;
+    }
+
+    .img-account-profile {
+        width: 264px;
+        height: 236px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+@media (max-width:1281px) { 
+
+    .container-xl {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        transform: scale(1.0);
+    }
+
+    .profile-section {
+        width: 100%;
+    }
+
+    .col-xl-4, .col-xl-8 {
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 450px;
+    }
+
+}
+
+@media (max-width:700px) { 
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-xl-4, .col-xl-8 {
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+}
+
+@media (max-width:500px) { 
+
+    .container-xl {
+        transform: scale(0.8);
+    }
+}

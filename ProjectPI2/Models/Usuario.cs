@@ -33,14 +33,6 @@ namespace ProjectPI2.Models
         [Display(Name = "E-mail")]
         public string email { get; set; }
 
-        // [Required(ErrorMessage ="O telefone é obrigatório.")]
-        // [Column(TypeName = "varchar(11)")]
-        // [MaxLength(11)]
-        // [MinLength(10, ErrorMessage = "Telefone muito curto")]
-        // [Phone(ErrorMessage ="Telefone inválido.")]
-        // [Display(Name = "Telefone")]
-        // public string telefone { get; set; }
-
         [Required(ErrorMessage ="O nome é obrigatório.")]
         [Column(TypeName = "varchar(50)")]
         [MaxLength(50)]
@@ -75,13 +67,6 @@ namespace ProjectPI2.Models
         [MinLength(2, ErrorMessage = "Estado inválido, muito curto")]
         [Display(Name = "Estado")]
         public string estado { get; set; }
-
-        [Required(ErrorMessage ="O país é obrigatório.")]
-        [MinLength(3, ErrorMessage = "País muito curto")]
-        [Column(TypeName = "varchar(20)")]
-        [MaxLength(20)]
-        [Display(Name = "País")]
-        public string pais { get; set; }
 
         [Required()]
         [Column(TypeName = "Boolean  DEFAULT FALSE")]

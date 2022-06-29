@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Home Page";
     Layout = null;
 }
@@ -49,11 +49,13 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll login-btn">
-                        <a href="@Url.Action("Cadastro", "Cadastro")">Cadastrar</a>                        
-                    </li>
+                        <a href="@Url.Action("NovoAnuncio", "Anuncio")">Anunciar</a>
+                    </li>                    
                     <li class="page-scroll login-btn">
-                        <a href="@Url.Action("login", "Home")">Entrar</a>                        
+                        <a href="@Url.Action("Index", "Home")">Sair</a>
                     </li>
+
+
 
                 </ul>
             </div>
@@ -73,17 +75,17 @@
                 <div class="filter-container">
                     <div class="filters">
                         <select name="sources" id="categorias" class="custom-select sources" placeholder="Source Type">
-                            <option value="categorias">Categoria</option>
+                            <option value="categorias">Categorias</option>
                             <option value="word">Word</option>
                             <option value="hashtag">Hashtag</option>
                         </select>
                         <select name="sources" id="estados" class="custom-select sources" placeholder="Source Type">
-                            <option value="estados">Estado</option>
+                            <option value="estados">Estados</option>
                             <option value="word">Word</option>
                             <option value="hashtag">Hashtag</option>
                         </select>
                         <select name="sources" id="cidades" class="custom-select sources" placeholder="Source Type">
-                            <option value="cidades">Cidade</option>
+                            <option value="cidades">Cidades</option>
                             <option value="word">Word</option>
                             <option value="hashtag">Hashtag</option>
                         </select>
@@ -152,15 +154,14 @@
         </a>
     </footer>
 
-    @if (TempData["success"] != null)
+    @if (TempData["successAd"] != null)
     {
         <script type="text/javascript">
             window.onload = function () {
-                swal("Usuário criado com sucesso!", '@TempData["success"]', "success");
+                swal("Anúncio criado com sucesso!", '@TempData["successAd"]', "success");
             };
         </script>
     }
-
 
     <script src="~/js/jquery.js" ></script>
     <script src="~/js/bootstrap.js" ></script>

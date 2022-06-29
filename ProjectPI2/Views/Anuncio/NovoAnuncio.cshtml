@@ -1,75 +1,192 @@
 @model ProjectPI2.Models.anuncio
-
-<style>
-    span{
-        color: red;
-    }
-</style>
 @{
     ViewData["Title"] = "Cadastro de Anúncio";
+    Layout = null;
 }
 
-<h2>@ViewData["Title"]</h2>
-<hr>
-<form class="form-horizontal" asp-action="Salvar" asp-controller="Anuncio" method="post">
-    <input type="hidden" asp-for="id" value="0">
+<!DOCTYPE html>
+<html lang="pt_br">
 
-    <label asp-for="data">Data do Anúncio:</label>
-    <input type="date" asp-for="data" class="form-control"> <br>
-    <span asp-validation-for="data"></span>
-    <br>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Páginas Amarelas</title>
+    <link rel="shortcut icon" href="~/img/favicon.ico" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/font-awesome.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/style.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/anuncio.css" type="text/css" asp-append-version="true">      
 
-    <label asp-for="custo">Custo por hora:</label>
-    <input type="number" asp-for="custo" placeholder="R$ 22.50" class="form-control"> <br>
-    <span asp-validation-for="custo"></span>
-    <br>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" asp-append-version="true">
+</head>
 
-    <label asp-for="disponibilidade">Ativo:</label>
-    <br>
-    <input type="radio" asp-for="disponibilidade" id="sim" value="true">Sim<br>
-    <input type="radio" asp-for="disponibilidade" id="nao" value="false">Não<br>
-    <br>
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+  
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("login", "Home")">
+                    <img class="logo" src="~/img/Logo_PA.svg" alt="Logotipo">
+                    <!--<i class="fa fa-bicycle"></i>  <span class="light">Páginas</span> Amarelas -->
+                </a>
+            </div>
 
-    @* <label asp-for="nome">Nome:</label>
-    <input type="text" asp-for="nome" placeholder="Joaquim da Silva" class="form-control"> <br>
-    <span asp-validation-for="nome"></span>
-    <br>
 
-    <label asp-for="email">Email:</label>
-    <input type="email" asp-for="email" placeholder="joaquim_silva@mail.com" class="form-control"> <br>
-    <span asp-validation-for="email"></span>
-    <br>
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
 
-    @* <label asp-for="telefone">Email:</label>
-    <input type="tel" asp-for="telefone" placeholder="955554444" class="form-control"> <br>
-    <span asp-validation-for="telefone"></span>
-    <br>
+                    <li class="hidden">
+                        <a href="@Url.Action("login", "Home")"></a>
+                    </li>
+                    <li class="page-scroll login-btn">
+                        <a href="@Url.Action("NovoAnuncio", "Anuncio")">Anunciar</a>
+                    </li>                    
+                    <li class="page-scroll login-btn">
+                        <a href="@Url.Action("Cadastro", "Cadastro")">Perfil</a>
+                    </li>
+                    <li class="page-scroll login-btn">
+                        <a href="@Url.Action("Index", "Home")">Sair</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <label asp-for="endereco">Endereço:</label>
-    <input type="text" asp-for="endereco" placeholder="Rua dos Sertanistas, 666" class="form-control"> <br>
-    <span asp-validation-for="endereco"></span>
-    <br>
+    <section id="profile" class="profile-section container">
 
-    <label asp-for="cep">CEP:</label>
-    <input type="number" asp-for="cep" placeholder="00000000" class="form-control"> <br>
-    <span asp-validation-for="cep"></span>
-    <br>
+        <div class="container-xl px-4 mt-4">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="prof mb-4 mb-xl-0">
+                        <div class="prof-header"></div>
+                        <div class="prof-body text-center">
+                            <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                            <!-- Profile picture help block-->
+                            <div class="small font-italic text-muted mb-4">JPG ou PNG menor que 2MB</div>
+                            <!-- Profile picture upload button-->
+                            <button class="btn btn-primary btn-image" type="button">Trocar imagem</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-8">
+                    <!-- Account details prof-->
+                    <div class="prof mb-4">
+                        <div class="prof-header">Detalhes do Anúncio</div>
+                        <div class="prof-body">
+                        <form class="form-horizontal" asp-action="Salvar" asp-controller="Anuncio" method="post">
+                            <input type="hidden" asp-for="id" value="0">
+                            <input type="hidden" asp-for="usuarioId" value="0">
 
-    <label asp-for="cidade">Cidade:</label>
-    <input type="text" asp-for="cidade" placeholder="São Paulo" class="form-control"> <br>
-    <span asp-validation-for="cidade"></span>
-    <br>
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-8">
+                                        <label asp-for="titulo" class="small mb-1" for="inputTitulo">Título</label>
+                                        <input asp-for="titulo" class="form-control" placeholder="Digite o título do serviço">
+                                        <span asp-validation-for="titulo"></span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label asp-for="categorianome" class="small mb-1">Categoria</label>
+                                        <input asp-for="categorianome" list="categorias" class="form-control-select"/>
+                                        <datalist id="jobs">
+                                            <option>Motorista</option>
+                                            <option>Pedreiro</option>
+                                            <option>Professor de Inglês</option>
+                                            <option>Jardineiro</option>
+                                            </datalist>
+                                         </select>
+                                        <span asp-validation-for="categorianome"></span>
+                                    </div>
+                                </div>
+                                    <div class="mb-3">
+                                    <label asp-for="descricao" class="small mb-1" for="inputDescricao">Descrição</label>
+                                    <input asp-for="descricao" class="form-control" placeholder="Digite a descrição do serviço">
+                                    <span asp-validation-for="descricao"></span>
+                                </div>
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-8">
+                                        <label asp-for="telefone" class="small mb-1" for="inputPhone">Telefone</label>
+                                        <input asp-for="telefone" class="form-control" placeholder="Informe o número de telefone com DDD">
+                                         <span asp-validation-for="telefone"></span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label asp-for="whatsapp" class="small mb-1" for="inputWhatsApp">WhatsApp</label>
+                                        <input asp-for="whatsapp" class="form-control" placeholder="Informe o WhatsApp">
+                                        <span asp-validation-for="whatsapp"></span>
+                                    </div>
+                                </div>
+                                 <div class="row gx-3 mb-3">
+                                    <div class="col-md-8">
+                                        <label asp-for="custo" class="small mb-1" for="inputPrice">Custo por hora</label>
+                                        <input asp-for="custo" class="form-control" placeholder="Informe o o preço do serviço por hora">
+                                         <span asp-validation-for="custo"></span>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <button class="btn btn-success">Salvar</button>
+                                    </div>
+                                </div>
 
-    <label asp-for="estado">Estado:</label>
-    <input type="text" asp-for="estado" placeholder="SP" class="form-control"> <br>
-    <span asp-validation-for="estado"></span>
-    <br>
+                            @* <label asp-for="nome">Nome:</label>
+                            <input type="text" asp-for="nome" placeholder="Joaquim da Silva" class="form-control"> <br>
+                            <span asp-validation-for="nome"></span>
+                            <br>
+                            <label asp-for="email">Email:</label>
+                            <input type="email" asp-for="email" placeholder="joaquim_silva@mail.com" class="form-control"> <br>
+                            <span asp-validation-for="email"></span>
+                            <br>
+                            @* <label asp-for="telefone">Email:</label>
+                            <input type="tel" asp-for="telefone" placeholder="955554444" class="form-control"> <br>
+                            <span asp-validation-for="telefone"></span>
+                            <br>
+                            <label asp-for="endereco">Endereço:</label>
+                            <input type="text" asp-for="endereco" placeholder="Rua dos Sertanistas, 666" class="form-control"> <br>
+                            <span asp-validation-for="endereco"></span>
+                            <br>
+                            <label asp-for="cep">CEP:</label>
+                            <input type="number" asp-for="cep" placeholder="00000000" class="form-control"> <br>
+                            <span asp-validation-for="cep"></span>
+                            <br>
+                            <label asp-for="cidade">Cidade:</label>
+                            <input type="text" asp-for="cidade" placeholder="São Paulo" class="form-control"> <br>
+                            <span asp-validation-for="cidade"></span>
+                            <br>
+                            <label asp-for="estado">Estado:</label>
+                            <input type="text" asp-for="estado" placeholder="SP" class="form-control"> <br>
+                            <span asp-validation-for="estado"></span>
+                            <br>
+                            <label asp-for="pais">País:</label>
+                            <input type="text" asp-for="pais" placeholder="Brasil" class="form-control"> <br>
+                            <span asp-validation-for="pais"></span>
+                            <br>
+                        *@
 
-    <label asp-for="pais">País:</label>
-    <input type="text" asp-for="pais" placeholder="Brasil" class="form-control"> <br>
-    <span asp-validation-for="pais"></span>
-    <br>
-*@
 
-    <button class="btn btn-success">Salvar</button>
-</form>
+                        </form>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+    <dir class="fix-footer"> </dir>
+
+    <footer id= "footer" class="brand">
+        <a class="fa">
+            <span class="light">© 2022 | <img class="logo" src="~/img/Logo_PA_footer.svg" alt="Logotipo">
+        </a>
+    </footer>
+
+    <script src="~/js/jquery.js" ></script>
+    <script src="~/js/bootstrap.js" ></script>
+    <script src="~/js/jquery.easing.js" ></script>
+    <script src="~/js/style.js" ></script>
+
+</body>
+
+</html>

@@ -31,9 +31,10 @@ namespace ProjectPI2.Controllers
                 database.Anuncio.Add(anun);
                 database.SaveChanges();
 
-                return Content("Bem sucedido");
+                TempData["successAd"] = "As pessoas já podem entrar contato com você.";
+                return RedirectToAction("login", "Home");
             }
-            return View("../Anuncio/Index");
+            return View("../Anuncio/NovoAnuncio");
     }
 
     }
