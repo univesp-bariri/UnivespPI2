@@ -1,6 +1,6 @@
-@model ProjectPI2.Models.categoria 
+@model ProjectPI2.Models.anuncio
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Cadastro de Anúncio";
     Layout = null;
 }
 
@@ -14,17 +14,12 @@
     <meta name="author" content="">
     
     <title>Páginas Amarelas</title>
-    <link media="screen" rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css" >
-    <link media="screen" rel="stylesheet" href='https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.css' >
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
     <link rel="shortcut icon" href="~/img/favicon.ico" asp-append-version="true">
     <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/font-awesome.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/style.css" type="text/css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/anuncio.css" type="text/css" asp-append-version="true">      
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" asp-append-version="true">
 </head>
 
@@ -37,7 +32,8 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="@Url.Action("login", "Home")">
-
+                    <img class="logo" src="~/img/Logo_PA.svg" alt="Logotipo">
+                    <!--<i class="fa fa-bicycle"></i>  <span class="light">Páginas</span> Amarelas -->
                 </a>
             </div>
 
@@ -46,7 +42,7 @@
                 <ul class="nav navbar-nav">
 
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                        <a href="@Url.Action("login", "Home")"></a>
                     </li>
                     <li class="page-scroll login-btn">
                         <a href="@Url.Action("MeusAnuncios", "Anuncio")">Meus Anúncios</a>
@@ -57,50 +53,12 @@
                     <li class="page-scroll login-btn">
                         <a href="@Url.Action("Index", "Home")">Sair</a>
                     </li>
-
-
-
                 </ul>
             </div>
-
         </div>
-
     </nav>
 
-    <section class="intro">
-            <div class="align-logo">
-                <a class="discover">
-                    <img class="logo" src="~/img/Logo_PA.svg" alt="Logotipo">
-                </a>
-            </div>
-            <div class="wrap">
-                <div class="search">
-                    <input id="search-btn" type="text" class="searchTerm" placeholder="O que você está procurando?">
-                    <button type="submit" class="searchButton">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-                <div class="filter-container">
-                    <div class="filters">
-                        <label hidden>
-                            <select hidden id="pais">Brasil</select>
-                        </label>
-                        <label id="categoria" class="small mb-1" for="inputOrgProf">
-                            <select id="categoria" asp-for="id" asp-items="ViewBag.id" class="form-control-select custom-select sources"></select>
-                        </label>
-                        <label id="campo_estado"  class="small mb-1" for="inputOrgName">
-                            <select id="estado" class="form-control-select custom-select sources" value=""></select>
-                        </label>
-                        <label id="campo_cidade" class="small mb-1" for="inputLocation">
-                            <select id="cidade"  class="form-control-select custom-select sources"></select>
-                        </label>
-                    </div>
-                </div>
-
-
-    </section>
-
-    <section id="results" class="results-section container">
+    <section id="results" class="results-section container results-section-ad">
         <ul class="results-list">
             <li class="card">
                 <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
@@ -158,20 +116,11 @@
         </a>
     </footer>
 
-    @if (TempData["successAd"] != null)
-    {
-        <script type="text/javascript">
-            window.onload = function () {
-                swal("Anúncio criado com sucesso!", '@TempData["successAd"]', "success");
-            };
-        </script>
-    }
+    <script src="~/js/jquery.js" ></script>
+    <script src="~/js/bootstrap.js" ></script>
+    <script src="~/js/jquery.easing.js" ></script>
+    <script src="~/js/style.js" ></script>
 
-    <script src="@Url.Content("~/js/jquery.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/js/bootstrap.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/js/jquery.easing.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/js/style.js")" type="text/javascript"></script>
-    <script src="@Url.Content("~/js/locations.js")" type="text/javascript"></script>
 </body>
 
 </html>

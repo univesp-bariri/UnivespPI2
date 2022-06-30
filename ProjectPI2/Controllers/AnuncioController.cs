@@ -1,6 +1,9 @@
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ProjectPI2.Models;
-using WebPostgreSQL.Models;
+using WebPostgreSQL.Models; 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ProjectPI2.Controllers
 {
@@ -16,15 +19,27 @@ namespace ProjectPI2.Controllers
     {
         return View();
     }
-    public IActionResult NovoAnuncio()
+
+    [HttpGet]
+    public async Task<IActionResult> NovoAnuncio()
     {
+        ViewData["id"] = new SelectList(await database.Categorias.ToListAsync(), "id", "nome");
         return View();
     }
+
+        [HttpGet]
+        
+    public async Task<IActionResult> MeusAnuncios()
+    {
+        ViewData["id"] = new SelectList(await database.Categorias.ToListAsync(), "id", "nome");
+        return View();
+    }
+
     public IActionResult Salvar(anuncio anun)
     {
         if(ModelState.IsValid)
             {
-                database.Anuncio.Add(anun);
+                database.Anuncios.Add(anun);
                 database.SaveChanges();
 
                 TempData["successAd"] = "As pessoas já podem entrar contato com você.";

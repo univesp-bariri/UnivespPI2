@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<anuncio>;
+
+@{
+    ViewBag.Title = "Index";
     Layout = null;
 }
 
@@ -35,9 +37,8 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">
-                    <img class="logo" src="~/img/Logo_PA.svg" alt="Logotipo">
-                    <!--<i class="fa fa-bicycle"></i>  <span class="light">Páginas</span> Amarelas -->
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+              
                 </a>
             </div>
 
@@ -63,30 +64,37 @@
     </nav>
 
     <section class="intro">
+            <div class="align-logo">
+                <a class="discover">
+                    <img class="logo" src="~/img/Logo_PA.svg" alt="Logotipo">
+                </a>
+            </div>
             <div class="wrap">
-                <div class="search">
-                    <input id="search-btn" type="text" class="searchTerm" placeholder="O que você está procurando?">
-                    <button type="submit" class="searchButton">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
+                @using (Html.BeginForm("Index","Home",FormMethod.Get, new {id="frmId", @class = "search"}))
+                {
+                @Html.TextBox("Pesquisa")
+                <button id="search-btn" type="submit" class="searchButton" value="Pesquisar">
+                    <i class="fa fa-search"></i>
+                </button>
+
+                }
+
                 <div class="filter-container">
                     <div class="filters">
-                        <select name="sources" id="categorias" class="custom-select sources" placeholder="Source Type">
-                            <option value="categorias">Categoria</option>
-                            <option value="word">Word</option>
-                            <option value="hashtag">Hashtag</option>
-                        </select>
-                        <select name="sources" id="estados" class="custom-select sources" placeholder="Source Type">
-                            <option value="estados">Estado</option>
-                            <option value="word">Word</option>
-                            <option value="hashtag">Hashtag</option>
-                        </select>
-                        <select name="sources" id="cidades" class="custom-select sources" placeholder="Source Type">
-                            <option value="cidades">Cidade</option>
-                            <option value="word">Word</option>
-                            <option value="hashtag">Hashtag</option>
-                        </select>
+                        <label hidden>
+                            <select hidden id="pais">Brasil</select>
+                        </label>
+                        
+                        <label id="categoria" class="small mb-1" for="inputOrgProf">
+                           <!-- <select id="categoria" asp-for="categoriaId" asp-items="ViewBag.id" class="form-control-select custom-select sources"></select>-->
+                        </label>
+                      
+                        <label id="campo_estado"  class="small mb-1" for="inputOrgName">
+                            <select id="estado" class="form-control-select custom-select sources"></select>
+                        </label>
+                        <label id="campo_cidade" class="small mb-1" for="inputLocation">
+                            <select id="cidade"  class="form-control-select custom-select sources"></select>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -95,53 +103,27 @@
     </section>
 
     <section id="results" class="results-section container">
+ 
+
+
+
         <ul class="results-list">
-            <li class="card">
-                <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
-                <div class="container-card">
-                    <h4><b>Valdir Camilo</b></h4> 
-                    <p>Pedreiro</p> 
-                    <p class="description">Mais de 20 anos em trabalhos em alvenaria, concreto e outros materiais...</p> 
-                </div>
-            </li>
-
-            <li class="card">
-                <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
-                <div class="container-card">
-                    <h4><b>Valdir Camilo</b></h4> 
-                    <p>Pedreiro</p> 
-                    <p class="description">Mais de 20 anos em trabalhos em alvenaria, concreto e outros materiais...</p> 
-                </div>
-            </li>
-
-            <li class="card">
-                <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
-                <div class="container-card">
-                    <h4><b>Valdir Camilo</b></h4> 
-                    <p>Pedreiro</p> 
-                    <p class="description">Mais de 20 anos em trabalhos em alvenaria, concreto e outros materiais...</p> 
-                </div>
-            </li>
-
-            <li class="card">
-                <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
-                <div class="container-card">
-                    <h4><b>Valdir Camilo</b></h4> 
-                    <p>Pedreiro</p> 
-                    <p class="description">Mais de 20 anos em trabalhos em alvenaria, concreto e outros materiais...</p> 
-                </div>
-            </li>
-
-            <li class="card">
-                <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
-                <div class="container-card">
-                    <h4><b>Valdir Camilo</b></h4> 
-                    <p>Pedreiro</p> 
-                    <p class="description">Mais de 20 anos em trabalhos em alvenaria, concreto e outros materiais...</p> 
-                </div>
-            </li>
-            
+                    @foreach (var item in Model)
+                    {
+                        <li class="card">
+                            <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
+                            <div class="container-card">
+                                <h4><b> @Html.DisplayFor( modelItem => item.id)</b></h4> 
+                                <p>@Html.DisplayFor( modelItem => item.titulo)</p> 
+                                <p>@Html.DisplayFor( modelItem => item.descricao)</p> 
+                            </div>
+                        </li>
+        
+                    }
         </ul>
+
+
+
     </section>
     
     <dir class="fix-footer"> </dir>
@@ -161,11 +143,11 @@
         </script>
     }
 
-
-    <script src="~/js/jquery.js" ></script>
-    <script src="~/js/bootstrap.js" ></script>
-    <script src="~/js/jquery.easing.js" ></script>
-    <script src="~/js/style.js" ></script>
+    <script src="@Url.Content("~/js/jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/bootstrap.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery.easing.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/style.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/locations.js")" type="text/javascript"></script>
 
 </body>
 

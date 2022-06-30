@@ -29,30 +29,47 @@ namespace ProjectPI2.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
+                    b.Property<int>("categoriaId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("categorianome")
-                        .HasColumnType("varchar(30)");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
 
                     b.Property<double>("custo")
-                        .HasColumnType("DOUBLE PRECISION");
+                        .HasMaxLength(10)
+                        .HasColumnType("double precision");
 
                     b.Property<string>("descricao")
-                        .HasColumnType("varchar(100)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
 
                     b.Property<string>("telefone")
-                        .HasColumnType("varchar(15)");
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("character varying(15)");
 
                     b.Property<string>("titulo")
-                        .HasColumnType("varchar(30)");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("character varying(30)");
 
                     b.Property<int>("usuarioId")
                         .HasColumnType("integer");
 
                     b.Property<string>("whatsapp")
-                        .HasColumnType("varchar(15)");
+                        .HasMaxLength(15)
+                        .HasColumnType("character varying(15)");
 
                     b.HasKey("id");
 
-                    b.ToTable("anuncio");
+                    b.HasIndex("categoriaId");
+
+                    b.HasIndex("usuarioId");
+
+                    b.ToTable("anuncio", (string)null);
                 });
 
             modelBuilder.Entity("ProjectPI2.Models.categoria", b =>
@@ -64,11 +81,13 @@ namespace ProjectPI2.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
                     b.Property<string>("nome")
-                        .HasColumnType("varchar(50)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.HasKey("id");
 
-                    b.ToTable("categoria");
+                    b.ToTable("categoria", (string)null);
                 });
 
             modelBuilder.Entity("ProjectPI2.Models.usuario", b =>
@@ -82,40 +101,42 @@ namespace ProjectPI2.Migrations
                     b.Property<string>("cep")
                         .IsRequired()
                         .HasMaxLength(8)
-                        .HasColumnType("varchar(8)");
+                        .HasColumnType("character varying(8)");
 
                     b.Property<string>("cidade")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("character varying(30)");
 
                     b.Property<string>("cnpj")
+                        .IsRequired()
                         .HasMaxLength(14)
-                        .HasColumnType("VARCHAR(14)");
+                        .HasColumnType("character varying(14)");
 
                     b.Property<string>("cpf")
+                        .IsRequired()
                         .HasMaxLength(11)
-                        .HasColumnType("VARCHAR(11)");
+                        .HasColumnType("character varying(11)");
 
                     b.Property<string>("email")
                         .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("character varying(30)");
 
                     b.Property<string>("endereco")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<string>("estado")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("character varying(20)");
 
                     b.Property<string>("nome")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("character varying(50)");
 
                     b.Property<bool>("pjuridica")
                         .HasColumnType("Boolean  DEFAULT FALSE");
@@ -123,16 +144,45 @@ namespace ProjectPI2.Migrations
                     b.Property<string>("senha")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("character varying(20)");
 
                     b.Property<string>("username")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("character varying(20)");
 
                     b.HasKey("id");
 
-                    b.ToTable("usuario");
+                    b.ToTable("usuario", (string)null);
+                });
+
+            modelBuilder.Entity("ProjectPI2.Models.anuncio", b =>
+                {
+                    b.HasOne("ProjectPI2.Models.categoria", "categoria")
+                        .WithMany("Anuncios")
+                        .HasForeignKey("categoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProjectPI2.Models.usuario", "Usuarios")
+                        .WithMany("Anuncios")
+                        .HasForeignKey("usuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuarios");
+
+                    b.Navigation("categoria");
+                });
+
+            modelBuilder.Entity("ProjectPI2.Models.categoria", b =>
+                {
+                    b.Navigation("Anuncios");
+                });
+
+            modelBuilder.Entity("ProjectPI2.Models.usuario", b =>
+                {
+                    b.Navigation("Anuncios");
                 });
 #pragma warning restore 612, 618
         }

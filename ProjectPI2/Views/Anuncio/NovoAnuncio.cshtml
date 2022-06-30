@@ -45,11 +45,11 @@
                         <a href="@Url.Action("login", "Home")"></a>
                     </li>
                     <li class="page-scroll login-btn">
-                        <a href="@Url.Action("NovoAnuncio", "Anuncio")">Anunciar</a>
-                    </li>                    
+                        <a href="@Url.Action("MeusAnuncios", "Anuncio")">Meus Anúncios</a>
+                    </li>           
                     <li class="page-scroll login-btn">
-                        <a href="@Url.Action("Cadastro", "Cadastro")">Perfil</a>
-                    </li>
+                        <a href="@Url.Action("NovoAnuncio", "Anuncio")">Anunciar</a>
+                    </li>            
                     <li class="page-scroll login-btn">
                         <a href="@Url.Action("Index", "Home")">Sair</a>
                     </li>
@@ -81,7 +81,9 @@
                         <div class="prof-body">
                         <form class="form-horizontal" asp-action="Salvar" asp-controller="Anuncio" method="post">
                             <input type="hidden" asp-for="id" value="0">
-                            <input type="hidden" asp-for="usuarioId" value="0">
+
+                            <!-- REMOVER -->
+                            <input type="hidden" asp-for="usuarioId" value="2">
 
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-8">
@@ -91,14 +93,9 @@
                                     </div>
                                     <div class="col-md-8">
                                         <label asp-for="categorianome" class="small mb-1">Categoria</label>
-                                        <input asp-for="categorianome" list="categorias" class="form-control-select"/>
-                                        <datalist id="jobs">
-                                            <option>Motorista</option>
-                                            <option>Pedreiro</option>
-                                            <option>Professor de Inglês</option>
-                                            <option>Jardineiro</option>
-                                            </datalist>
-                                         </select>
+                                        <label asp-for="categorianome" class="small mb-1">
+                                            <select id="categoria" asp-for="categoriaId" asp-items="ViewBag.id" class="form-control-select custom-select sources"></select>
+                                        </label>
                                         <span asp-validation-for="categorianome"></span>
                                     </div>
                                 </div>

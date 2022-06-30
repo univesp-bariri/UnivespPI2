@@ -1,30 +1,40 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using ProjectPI2.Models;
-using WebPostgreSQL.Models; // banco de dados
+using WebPostgreSQL.Models; 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ProjectPI2.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly Contexto database; // banco de dados
+    private readonly Contexto database; 
 
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger, Contexto database) //( banco de dados)
+    public HomeController(ILogger<HomeController> logger, Contexto database) 
     {
-        this.database = database; // banco de dados
+        this.database = database; 
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index(string Pesquisa)
     {
-        return View();
+        var a = database.Anuncios.AsQueryable();
+        if(!string.IsNullOrEmpty(Pesquisa))
+            a = a.Where(c => c.categorianome.Contains(Pesquisa));
+        a = a.OrderBy( c => c.titulo);
+
+        return View(await a.ToListAsync());
     }
 
-    public IActionResult login()
+
+    [HttpGet]
+    public async Task<IActionResult> login()
+    
     {
+        ViewData["id"] = new SelectList(await database.Categorias.ToListAsync(), "id", "nome");
         return View();
     }
 
