@@ -10,12 +10,16 @@ namespace ProjectPI2.Controllers
 {
     public class AnuncioController : Controller
     {
-    private readonly Contexto database; 
+    private readonly Contexto database; // banco de dados
 
-    public AnuncioController(Contexto database)
+    private readonly ILogger<AnuncioController> _logger;
+
+    public AnuncioController(ILogger<AnuncioController> logger, Contexto database) //( banco de dados)
         {
-            this.database = database; 
+            this.database = database; // banco de dados
+            _logger = logger;
         }
+    
     public IActionResult Index()
     {
         return View();
