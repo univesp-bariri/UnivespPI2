@@ -18,7 +18,6 @@ namespace ProjectPI2.Models
 
         public string descricao { get; set; }
 
-
         public string telefone { get; set; }
 
         public string whatsapp { get; set; }
