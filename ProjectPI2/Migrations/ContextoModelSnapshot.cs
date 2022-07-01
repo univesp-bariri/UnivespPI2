@@ -31,7 +31,6 @@ namespace ProjectPI2.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
                     b.Property<string>("categnome")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("character varying(30)");
 
@@ -64,6 +63,9 @@ namespace ProjectPI2.Migrations
 
                     b.Property<int>("usuarioId")
                         .HasColumnType("integer");
+
+                    b.Property<string>("usuarionome")
+                        .HasColumnType("text");
 
                     b.Property<string>("whatsapp")
                         .HasMaxLength(15)

@@ -10,6 +10,8 @@ namespace ProjectPI2.Models
 
         public string titulo { get; set; }
 
+        public string usuarionome { get; set; }
+
         public string categorianome { get; set; }
 
         public string categnome { get; set; }
