@@ -21,23 +21,27 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index(string Pesquisa)
     {
-        var a = database.Anuncios.AsQueryable();
-        if(!string.IsNullOrEmpty(Pesquisa))
-            a = a.Where(c => c.categorianome.Contains(Pesquisa));
-        a = a.OrderBy( c => c.titulo);
+        ViewData["Index"] = Pesquisa;
+        var UserQuery = from x in database.Anuncios select x;
 
-        return View(await a.ToListAsync());
+        if (!string.IsNullOrEmpty(Pesquisa))
+            {
+            UserQuery = UserQuery.Where(x => x.categnome.Contains(Pesquisa.ToLower().Replace("ç", "c")));
+        }
+        return View(await UserQuery.AsNoTracking().ToListAsync());
     }
 
-
-    [HttpGet]
-    public async Task<IActionResult> login()
-    
+public async Task<IActionResult> login(string Pesquisa)
     {
-        ViewData["id"] = new SelectList(await database.Categorias.ToListAsync(), "id", "nome");
-        return View();
-    }
+        ViewData["login"] = Pesquisa;
+        var UserQuery = from x in database.Anuncios select x;
 
+        if (!string.IsNullOrEmpty(Pesquisa))
+            {
+            UserQuery = UserQuery.Where(x => x.categnome.Contains(Pesquisa.ToLower().Replace("ç", "c")));
+        }
+        return View(await UserQuery.AsNoTracking().ToListAsync());
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

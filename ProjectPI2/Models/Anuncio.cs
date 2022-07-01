@@ -12,6 +12,8 @@ namespace ProjectPI2.Models
 
         public string categorianome { get; set; }
 
+        public string categnome { get; set; }
+
         public string descricao { get; set; }
 
 
@@ -23,12 +25,6 @@ namespace ProjectPI2.Models
 
         public int usuarioId { get; set; }
         public usuario Usuarios { get; set; }
-
-        public int categoriaId { get; set; }
-        public categoria categoria { get; set; }
-
-
-
 
     }
 }

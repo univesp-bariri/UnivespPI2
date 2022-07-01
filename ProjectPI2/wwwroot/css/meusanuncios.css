@@ -1,0 +1,32 @@
+.card img {
+    margin: 0;
+}
+
+.btn {
+margin: 0 0 0 auto;
+width: fit-content;
+background: none;
+font-size: 1em;
+height: fit-content;
+}
+
+.btn:hover, .btn:focus {
+    color: red;
+    background: none;
+}
+
+
+.meus-anuncios-form {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+    background: none;
+
+}
+
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transform: scale(1.0);
+  }

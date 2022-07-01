@@ -1,6 +1,6 @@
-@model ProjectPI2.Models.anuncio
+@model IEnumerable<anuncio>;
 @{
-    ViewData["Title"] = "Cadastro de Anúncio";
+    ViewData["Title"] = "MeusAnuncios";
     Layout = null;
 }
 
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="~/css/font-awesome.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/style.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/anuncio.css" type="text/css" asp-append-version="true">      
+    <link rel="stylesheet" href="~/css/meusanuncios.css" type="text/css" asp-append-version="true">      
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" asp-append-version="true">
 </head>
@@ -58,54 +59,27 @@
         </div>
     </nav>
 
-    <section id="results" class="results-section container results-section-ad">
+    <section id="results" class="results-section container">
+ 
         <ul class="results-list">
-            <li class="card">
-                <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
-                <div class="container-card">
-                    <h4><b>Valdir Camilo</b></h4> 
-                    <p>Pedreiro</p> 
-                    <p class="description">Mais de 20 anos em trabalhos em alvenaria, concreto e outros materiais...</p> 
-                </div>
-            </li>
-
-            <li class="card">
-                <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
-                <div class="container-card">
-                    <h4><b>Valdir Camilo</b></h4> 
-                    <p>Pedreiro</p> 
-                    <p class="description">Mais de 20 anos em trabalhos em alvenaria, concreto e outros materiais...</p> 
-                </div>
-            </li>
-
-            <li class="card">
-                <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
-                <div class="container-card">
-                    <h4><b>Valdir Camilo</b></h4> 
-                    <p>Pedreiro</p> 
-                    <p class="description">Mais de 20 anos em trabalhos em alvenaria, concreto e outros materiais...</p> 
-                </div>
-            </li>
-
-            <li class="card">
-                <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
-                <div class="container-card">
-                    <h4><b>Valdir Camilo</b></h4> 
-                    <p>Pedreiro</p> 
-                    <p class="description">Mais de 20 anos em trabalhos em alvenaria, concreto e outros materiais...</p> 
-                </div>
-            </li>
-
-            <li class="card">
-                <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
-                <div class="container-card">
-                    <h4><b>Valdir Camilo</b></h4> 
-                    <p>Pedreiro</p> 
-                    <p class="description">Mais de 20 anos em trabalhos em alvenaria, concreto e outros materiais...</p> 
-                </div>
-            </li>
-            
+                    @foreach (var item in Model)
+                    {
+                        <li class="card">
+                            <form class="meus-anuncios-form" asp-controller="Anuncio" asp-action="ExcluirAnuncio" asp-route-id="@item.id" >
+                                <button type="submit" class="btn btn-sm btn-outline-danger rounded-circle">
+                                    <i class="fa fa-times-circle"></i></button>
+                            </form>
+                            <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
+                            <div class="container-card">
+                                <h4><b> @Html.DisplayFor( modelItem => item.id)</b></h4> 
+                                <p>@Html.DisplayFor( modelItem => item.titulo)</p> 
+                                <p>@Html.DisplayFor( modelItem => item.descricao)</p> 
+                            </div>
+                        </li>
+        
+                    }
         </ul>
+
     </section>
     
     <dir class="fix-footer"> </dir>
@@ -116,10 +90,11 @@
         </a>
     </footer>
 
-    <script src="~/js/jquery.js" ></script>
-    <script src="~/js/bootstrap.js" ></script>
-    <script src="~/js/jquery.easing.js" ></script>
-    <script src="~/js/style.js" ></script>
+    <script src="@Url.Content("~/js/jquery.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/bootstrap.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery.easing.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/style.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/locations.js")" type="text/javascript"></script>
 
 </body>
 

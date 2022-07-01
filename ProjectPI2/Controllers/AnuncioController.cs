@@ -5,6 +5,7 @@ using WebPostgreSQL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
+
 namespace ProjectPI2.Controllers
 {
     public class AnuncioController : Controller
@@ -23,16 +24,32 @@ namespace ProjectPI2.Controllers
     [HttpGet]
     public async Task<IActionResult> NovoAnuncio()
     {
-        ViewData["id"] = new SelectList(await database.Categorias.ToListAsync(), "id", "nome");
+        ViewData["id"] = new SelectList(await database.Categorias.ToListAsync(), "nome", "nome");
         return View();
     }
 
-        [HttpGet]
-        
-    public async Task<IActionResult> MeusAnuncios()
+    public async Task<IActionResult> MeusAnuncios(int Pesquisa)
     {
-        ViewData["id"] = new SelectList(await database.Categorias.ToListAsync(), "id", "nome");
-        return View();
+        ViewData["MeusAnuncios"] = Pesquisa;
+        var UserQuery = from x in database.Anuncios select x;
+        UserQuery = UserQuery.Where(x => x.usuarioId.Equals(1));
+        return View(await UserQuery.AsNoTracking().ToListAsync());
+    }
+
+
+
+    [HttpGet]
+        public async Task<IActionResult> EncontrarAnuncio(int id)
+    {
+        return View(await database.Anuncios.FindAsync(id));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ExcluirAnuncio(int id){
+        anuncio ad = await database.Anuncios.FindAsync(id);
+        database.Anuncios.Remove(ad);
+        await database.SaveChangesAsync();
+        return RedirectToAction(nameof(MeusAnuncios));
     }
 
     public IActionResult Salvar(anuncio anun)

@@ -219,6 +219,12 @@ body{margin-top:0;
 
 }
 
+.results-section
+{
+  padding: 0 0 100px 0;
+margin-bottom: 20px;
+}
+
 .results-list {
     margin-bottom: 100px;
 }
@@ -226,3 +232,7 @@ body{margin-top:0;
 body {
   background: none ;
 }
+  
+  #Pesquisa {
+    width: 100%;
+  }

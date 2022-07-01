@@ -287,8 +287,8 @@ body{
 /*Resize the wrap to see the search bar change!*/
 .wrap{
   width: 35%;
-  position: sticky;
-  top: 50%;
+  position: relative;
+  top: 5em;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -350,7 +350,7 @@ select.sources option:hover {
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transform: scale(1.05);
-    cursor: pointer;
+    /*cursor: pointer;*/
   }
   
   .container-card {
@@ -406,7 +406,7 @@ select.sources option:hover {
   .fix-footer {
     height: 80px;
     background: #fff;
-    margin: 0;
+    margin-top: 100px;
     padding: 0;
   }
 
@@ -453,7 +453,6 @@ label, select{ display:block; }
 body {
   background: none ;
 }
-
 
 #Pesquisa {
   width: 100%;

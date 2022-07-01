@@ -76,27 +76,7 @@
                 <button id="search-btn" type="submit" class="searchButton" value="Pesquisar">
                     <i class="fa fa-search"></i>
                 </button>
-
                 }
-
-                <div class="filter-container">
-                    <div class="filters">
-                        <label hidden>
-                            <select hidden id="pais">Brasil</select>
-                        </label>
-                        
-                        <label id="categoria" class="small mb-1" for="inputOrgProf">
-                           <!-- <select id="categoria" asp-for="categoriaId" asp-items="ViewBag.id" class="form-control-select custom-select sources"></select>-->
-                        </label>
-                      
-                        <label id="campo_estado"  class="small mb-1" for="inputOrgName">
-                            <select id="estado" class="form-control-select custom-select sources"></select>
-                        </label>
-                        <label id="campo_cidade" class="small mb-1" for="inputLocation">
-                            <select id="cidade"  class="form-control-select custom-select sources"></select>
-                        </label>
-                    </div>
-                </div>
             </div>
 
 
@@ -104,16 +84,14 @@
 
     <section id="results" class="results-section container">
  
-
-
-
         <ul class="results-list">
                     @foreach (var item in Model)
                     {
                         <li class="card">
                             <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
                             <div class="container-card">
-                                <h4><b> @Html.DisplayFor( modelItem => item.id)</b></h4> 
+                                <h4><b> @Html.DisplayFor( modelItem => item.categorianome )</b></h4> 
+                                <h4><b> @Html.DisplayFor( modelItem => item.categnome )</b></h4> 
                                 <p>@Html.DisplayFor( modelItem => item.titulo)</p> 
                                 <p>@Html.DisplayFor( modelItem => item.descricao)</p> 
                             </div>

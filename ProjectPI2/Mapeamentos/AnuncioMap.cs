@@ -15,12 +15,12 @@ namespace Mapeamentos
             Builder.HasKey( p => p.id );
             Builder.Property( p => p.titulo).HasMaxLength(30).IsRequired();
             Builder.Property( p => p.categorianome).HasMaxLength(30).IsRequired();
+            Builder.Property( p => p.categnome).HasMaxLength(30);
             Builder.Property( p => p.descricao).HasMaxLength(100).IsRequired();
             Builder.Property( p => p.telefone).HasMaxLength(15).IsRequired();
             Builder.Property( p => p.whatsapp).HasMaxLength(15);
             Builder.Property( p => p.custo).HasMaxLength(10);
 
-            Builder.HasOne( p => p.categoria).WithMany( p => p.Anuncios).HasForeignKey( p => p.categoriaId).IsRequired();
             Builder.HasOne( p => p.Usuarios).WithMany( p => p.Anuncios).HasForeignKey( p => p.usuarioId).IsRequired();
 
             Builder.ToTable("anuncio");

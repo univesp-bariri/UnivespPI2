@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="col-xl-8">
-                    <!-- Account details prof-->
+     
                     <div class="prof mb-4">
                         <div class="prof-header">Detalhes do Anúncio</div>
                         <div class="prof-body">
@@ -83,7 +83,7 @@
                             <input type="hidden" asp-for="id" value="0">
 
                             <!-- REMOVER -->
-                            <input type="hidden" asp-for="usuarioId" value="2">
+                            <input type="hidden" asp-for="usuarioId" value="1">
 
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-8">
@@ -94,7 +94,7 @@
                                     <div class="col-md-8">
                                         <label asp-for="categorianome" class="small mb-1">Categoria</label>
                                         <label asp-for="categorianome" class="small mb-1">
-                                            <select id="categoria" asp-for="categoriaId" asp-items="ViewBag.id" class="form-control-select custom-select sources"></select>
+                                            <select id="categoria" asp-for="categorianome" name="categorianome" asp-items="ViewBag.id" class="form-control-select custom-select sources"></select>
                                         </label>
                                         <span asp-validation-for="categorianome"></span>
                                     </div>
@@ -123,45 +123,9 @@
                                          <span asp-validation-for="custo"></span>
                                     </div>
                                     <div class="col-md-8">
-                                        <button class="btn btn-success">Salvar</button>
+                                        <button onclick="getValue" id="btn" class="btn btn-success">Salvar</button>
                                     </div>
                                 </div>
-
-                            @* <label asp-for="nome">Nome:</label>
-                            <input type="text" asp-for="nome" placeholder="Joaquim da Silva" class="form-control"> <br>
-                            <span asp-validation-for="nome"></span>
-                            <br>
-                            <label asp-for="email">Email:</label>
-                            <input type="email" asp-for="email" placeholder="joaquim_silva@mail.com" class="form-control"> <br>
-                            <span asp-validation-for="email"></span>
-                            <br>
-                            @* <label asp-for="telefone">Email:</label>
-                            <input type="tel" asp-for="telefone" placeholder="955554444" class="form-control"> <br>
-                            <span asp-validation-for="telefone"></span>
-                            <br>
-                            <label asp-for="endereco">Endereço:</label>
-                            <input type="text" asp-for="endereco" placeholder="Rua dos Sertanistas, 666" class="form-control"> <br>
-                            <span asp-validation-for="endereco"></span>
-                            <br>
-                            <label asp-for="cep">CEP:</label>
-                            <input type="number" asp-for="cep" placeholder="00000000" class="form-control"> <br>
-                            <span asp-validation-for="cep"></span>
-                            <br>
-                            <label asp-for="cidade">Cidade:</label>
-                            <input type="text" asp-for="cidade" placeholder="São Paulo" class="form-control"> <br>
-                            <span asp-validation-for="cidade"></span>
-                            <br>
-                            <label asp-for="estado">Estado:</label>
-                            <input type="text" asp-for="estado" placeholder="SP" class="form-control"> <br>
-                            <span asp-validation-for="estado"></span>
-                            <br>
-                            <label asp-for="pais">País:</label>
-                            <input type="text" asp-for="pais" placeholder="Brasil" class="form-control"> <br>
-                            <span asp-validation-for="pais"></span>
-                            <br>
-                        *@
-
-
                         </form>  
                         </div>
                     </div>

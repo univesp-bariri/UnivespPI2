@@ -22,8 +22,8 @@ namespace Mapeamentos
             Builder.Property( p => p.cidade).HasMaxLength(30).IsRequired();
             Builder.Property( p => p.estado).HasMaxLength(20).IsRequired();
             Builder.Property( p => p.pjuridica).HasColumnType("Boolean  DEFAULT FALSE").IsRequired();
-            Builder.Property( p => p.cnpj).HasMaxLength(14).IsRequired();
-            Builder.Property( p => p.cpf).HasMaxLength(11).IsRequired();
+            Builder.Property( p => p.cnpj).HasMaxLength(14);
+            Builder.Property( p => p.cpf).HasMaxLength(11);
 
             Builder.HasMany( p => p.Anuncios).WithOne( p => p.Usuarios).IsRequired();
 
