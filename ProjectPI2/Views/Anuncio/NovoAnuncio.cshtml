@@ -1,8 +1,10 @@
 @model ProjectPI2.Models.anuncio
 @{
-    ViewData["Title"] = "Cadastro de Anúncio";
+    ViewData["Title"] = "Upload  Page";
     Layout = null;
 }
+
+
 
 <!DOCTYPE html>
 <html lang="pt_br">
@@ -13,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>Páginas Amarelas</title>
+    <title>Procura Acha</title>
     <link rel="shortcut icon" href="~/img/favicon.ico" asp-append-version="true">
     <link rel="stylesheet" href="~/css/bootstrap.css" type="text/css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/font-awesome.css" type="text/css" asp-append-version="true">
@@ -69,11 +71,30 @@
                             <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                             <!-- Profile picture help block-->
                             <div class="small font-italic text-muted mb-4">JPG ou PNG menor que 2MB</div>
+                            @using (Html.BeginForm("NovoAnuncio", "Anuncio", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                            {  
+                                <div class="text-center">
+                                    <p style="color:red;font-weight:bold;">
+                                        @ViewBag.Message
+                                    </p>
+                                    <label for="file-upload" type="file" class="btn btn-primary btn-image custom-file-upload">
+                                    <i class="fa fa-cloud-upload"></i> Buscar Imagem 
+                                    <input id="file-upload" type="file"/>   
+                                    </label>
+                                    
+                                    <input class="btn btn-primary btn-image" type="file" name="formFile"/>
+
+                                    <button type="submit" value="Upload"> </button>
+                                </div>
+                            }
                             <!-- Profile picture upload button-->
-                            <button class="btn btn-primary btn-image" type="button">Trocar imagem</button>
+                            
                         </div>
                     </div>
                 </div>
+
+
+
                 <div class="col-xl-8">
      
                     <div class="prof mb-4">
@@ -139,7 +160,7 @@
 
     <footer id= "footer" class="brand">
         <a class="fa">
-            <span class="light">© 2022 | <img class="logo" src="~/img/Logo_PA_footer.svg" alt="Logotipo">
+            <span class="light">2022 | <img class="logo" src="~/img/Logo_PA_footer.svg" alt="Logotipo">
         </a>
     </footer>
 

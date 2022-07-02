@@ -24,7 +24,7 @@ namespace ProjectPI2.Controllers
     [HttpGet]
     public async Task<IActionResult> NovoAnuncio()
     {
-        ViewData["id"] = new SelectList(await database.Categorias.ToListAsync(), "nome", "nome");
+        ViewData["id"] = new SelectList(await database.Categorias.ToListAsync(), "id", "nome");
         return View();
     }
 
@@ -32,11 +32,9 @@ namespace ProjectPI2.Controllers
     {
         ViewData["MeusAnuncios"] = Pesquisa;
         var UserQuery = from x in database.Anuncios select x;
-        UserQuery = UserQuery.Where(x => x.usuarioId.Equals(1));
+        UserQuery = UserQuery.Where(x => x.usuarioId.Equals(2));
         return View(await UserQuery.AsNoTracking().ToListAsync());
     }
-
-
 
     [HttpGet]
         public async Task<IActionResult> EncontrarAnuncio(int id)
@@ -51,6 +49,29 @@ namespace ProjectPI2.Controllers
         await database.SaveChangesAsync();
         return RedirectToAction(nameof(MeusAnuncios));
     }
+
+
+        [HttpPost]
+        public IActionResult NovoAnuncio(IFormFile formFile)
+        {
+            try
+            {
+                string fileName = formFile.FileName;
+                fileName = Path.GetFileName(fileName);
+                string uploadpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//images", fileName);
+                var stream = new FileStream(uploadpath, FileMode.Create);
+                formFile.CopyToAsync(stream);
+                ViewBag.Message = uploadpath;
+            }
+
+            catch
+            {
+                ViewBag.Message = "Error while uploading the files.";
+
+            } 
+            return View();
+        }
+
 
     public IActionResult Salvar(anuncio anun)
     {

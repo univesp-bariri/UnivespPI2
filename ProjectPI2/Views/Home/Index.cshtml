@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>Páginas Amarelas</title>
+    <title>Procura Acha</title>
     <link media="screen" rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css" >
     <link media="screen" rel="stylesheet" href='https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.css' >
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
@@ -88,7 +88,7 @@
                     @foreach (var item in Model)
                     {
                         <li class="card">
-                            <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
+                            <img src="~/images/@item.usuarionome">
                             <div class="container-card">
                                 <h4><b> @Html.DisplayFor( modelItem => item.categorianome )</b></h4> 
                                 <h4><b> @Html.DisplayFor( modelItem => item.categnome )</b></h4> 
@@ -98,6 +98,7 @@
                         </li>
         
                     }
+                    <img src="~/images/Univesp-Bariri-Logo.png"  class="rounded-circle"height="40" width="40" asp-append-version="true" /> 
         </ul>
 
 
@@ -108,7 +109,7 @@
 
     <footer id= "footer" class="brand">
         <a class="fa">
-            <span class="light">© 2022 | <img class="logo" src="~/img/Logo_PA_footer.svg" alt="Logotipo">
+            <span class="light">2022 | <img class="logo" src="~/img/Logo_PA_footer.svg" alt="Logotipo">
         </a>
     </footer>
 
