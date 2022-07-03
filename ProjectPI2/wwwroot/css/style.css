@@ -366,7 +366,7 @@ select.sources option:hover {
   }
 
   .main-title {
-    margin: 0 0 5px 0;
+    margin: 6px 0 5px 0;
   }
 
   .results-section {
@@ -402,7 +402,6 @@ select.sources option:hover {
 
   .container-card p {
     font-size: 16px;
-    margin: 0 0 5px 0;
   }
 
   .container-card .description {
@@ -469,20 +468,18 @@ body {
   width: 100%;
 }
 
-.descricao p {
-  font-size: 14px;
-  height: 40px;
-  word-break: break-all;
-  white-space: normal;
-  display: flex;
-  margin: auto 0;
+.descricao {
+  display: inline;
 }
 
 .descricao p {
+  font-size: 14px;
   text-align: center;
   vertical-align: middle;
   display: table-cell;
   display: inline-block;
+  height: 50px;
+  margin-top: 0;
 }
 
 .local, .price {
@@ -511,9 +508,19 @@ body {
 
 .phone p {
   margin: 0;
+  font-size: 12px;
 }
 
-.left-side p {
+.left-side {
+  margin: 0;
+}
+
+.local p {
+  margin: 0;
+  font-size: 11px;;
+}
+
+.price {
   margin: 0;
 }
 
