@@ -61,6 +61,7 @@ color: #000;
 
 .light {
 font-weight: 400;
+font-size: 11px;
 }
 
 .navbar {
@@ -250,6 +251,7 @@ body{
   width: 100%;
   position: relative;
   display: inline-flex;
+  margin-bottom: 2em;
 }
 
 .searchTerm {
@@ -335,14 +337,14 @@ select.sources option:hover {
     transition: 0.3s;
     margin: 10px 20px;
     width: 300px;
-    height: 350px;
+    height: 380px;
     display: inline-block;
   }
   
-  .card img{
-    margin: 20px 0 0 0;
-    width: 85%;
-    height: 50%;
+  .foto {
+    margin: 20px 0 10px 0;
+    width: 250px;
+    height: 180px;
     object-fit: cover;
     object-position: center;
   }
@@ -356,6 +358,15 @@ select.sources option:hover {
   .container-card {
     padding: 2px 16px;
     height: 30%;
+  }
+
+  .title-card {
+    text-transform: capitalize;
+    margin: 0;
+  }
+
+  .main-title {
+    margin: 0 0 5px 0;
   }
 
   .results-section {
@@ -456,4 +467,66 @@ body {
 
 #Pesquisa {
   width: 100%;
+}
+
+.descricao p {
+  font-size: 14px;
+  height: 40px;
+  word-break: break-all;
+  white-space: normal;
+  display: flex;
+  margin: auto 0;
+}
+
+.descricao p {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  display: inline-block;
+}
+
+.local, .price {
+  display: flex;
+  margin: 0;
+}
+
+.price {
+  text-transform: lowercase;
+}
+
+.left-side {
+  position: relative;
+  word-break: break-all;
+  white-space: normal;
+  width: fit-content;
+}
+
+.phone {
+  position: relative;
+  word-break: break-all;
+  white-space: normal;
+  width: fit-content;
+  margin: 0 0 0 auto;
+}
+
+.phone p {
+  margin: 0;
+}
+
+.left-side p {
+  margin: 0;
+}
+
+.card-bottom {
+  display: flex;
+  margin: 5px auto 0 auto;
+}
+
+.card img .phone-img {
+  width: 20px;
+  height: 20px;
+}
+
+.navbar-brand {
+  float: none;
 }

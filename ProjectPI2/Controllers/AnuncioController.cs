@@ -21,6 +21,7 @@ namespace ProjectPI2.Controllers
         return View();
     }
 
+
     [HttpGet]
     public async Task<IActionResult> NovoAnuncio()
     {
@@ -32,7 +33,7 @@ namespace ProjectPI2.Controllers
     {
         ViewData["MeusAnuncios"] = Pesquisa;
         var UserQuery = from x in database.Anuncios select x;
-        UserQuery = UserQuery.Where(x => x.usuarioId.Equals(2));
+        UserQuery = UserQuery.Where(x => x.usuarioId.Equals(1));
         return View(await UserQuery.AsNoTracking().ToListAsync());
     }
 
@@ -61,21 +62,21 @@ namespace ProjectPI2.Controllers
                 string uploadpath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//images", fileName);
                 var stream = new FileStream(uploadpath, FileMode.Create);
                 formFile.CopyToAsync(stream);
-                ViewBag.Message = uploadpath;
+                ViewBag.Message = fileName;
             }
 
             catch
             {
-                ViewBag.Message = "Error while uploading the files.";
+                ViewBag.Message = "Error ao subir a imagem, recarregue a página!";
 
             } 
             return View();
         }
 
-
     public IActionResult Salvar(anuncio anun)
     {
         if(ModelState.IsValid)
+
             {
                 database.Anuncios.Add(anun);
                 database.SaveChanges();
@@ -83,8 +84,13 @@ namespace ProjectPI2.Controllers
                 TempData["successAd"] = "As pessoas já podem entrar contato com você.";
                 return RedirectToAction("login", "Home");
             }
+            
             return View("../Anuncio/NovoAnuncio");
     }
 
     }
+
+
+
+
 }

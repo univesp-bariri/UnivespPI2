@@ -34,7 +34,6 @@
                 </button>
                 <a class="navbar-brand" href="@Url.Action("login", "Home")">
                     <img class="logo" src="~/img/Logo_PA.svg" alt="Logotipo">
-                    <!--<i class="fa fa-bicycle"></i>  <span class="light">Páginas</span> Amarelas -->
                 </a>
             </div>
 
@@ -60,7 +59,6 @@
     </nav>
 
     <section id="results" class="results-section container">
- 
         <ul class="results-list">
                     @foreach (var item in Model)
                     {
@@ -69,11 +67,26 @@
                                 <button type="submit" class="btn btn-sm btn-outline-danger rounded-circle">
                                     <i class="fa fa-times-circle"></i></button>
                             </form>
-                            <img src="~/img/intro-bg-rural.jpg" alt="Avatar">
+                            <img class="foto" src="~/images/@item.imagepath">
                             <div class="container-card">
-                                <h4><b> @Html.DisplayFor( modelItem => item.id)</b></h4> 
-                                <p>@Html.DisplayFor( modelItem => item.titulo)</p> 
-                                <p>@Html.DisplayFor( modelItem => item.descricao)</p> 
+                                <p class="title-card">@Html.DisplayFor( modelItem => item.nome)</p> 
+                                <h5 class="main-title"><b> @Html.DisplayFor( modelItem => item.categorianome )</b></h5> 
+                                <div class=descricao>
+                                    <p>@Html.DisplayFor( modelItem => item.descricao)</p> 
+                                </div>
+                                <div class="card-bottom">
+                                    <div class="left-side">
+                                        <p class="price">$@Html.DisplayFor( modelItem => item.custo)/hora</p>
+                                        <div class="local">
+                                            <p>@Html.DisplayFor( modelItem => item.cidade)/</p> 
+                                            <p>@Html.DisplayFor( modelItem => item.estado)</p>
+                                        </div>                                
+                                    </div>
+                                    <div class="phone">
+                                        <p><img clas="phone-img" src="~/img/phone.png" alt="Fone" width="17" height="17"> @Html.DisplayFor( modelItem => item.telefone)</p>
+                                        <p><img clas="phone-img" src="~/img/whatsapp.png" alt="WhatsApp" width="20" height="20"> @Html.DisplayFor( modelItem => item.whatsapp)</p>  
+                                    </div>
+                                </div>
                             </div>
                         </li>
         
