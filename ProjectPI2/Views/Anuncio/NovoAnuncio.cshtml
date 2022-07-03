@@ -105,8 +105,6 @@
                         <div class="prof-header">Detalhes do Anúncio</div>
                         <div class="prof-body">
                         <form class="form-horizontal" asp-action="Salvar" asp-controller="Anuncio" method="post">
-                            <input type="hidden" asp-for="id" value="1">
-
                             <input type="hidden" asp-for="usuarioId" value="1">
                             <input value="@ViewBag.Message" type="hidden" asp-for="imagepath" />
 
