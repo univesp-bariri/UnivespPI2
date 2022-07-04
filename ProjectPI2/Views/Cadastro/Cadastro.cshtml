@@ -95,11 +95,11 @@
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label asp-for="endereco" class="small mb-1">Endereço</label>
-                                        <input asp-for="endereco" class="form-control" placeholder="Digite o endereço" required>
+                                        <input asp-for="endereco" class="form-control" placeholder="Digite o endereço" required maxlength="50">
                                     </div>
                                     <div class="col-md-6">
                                         <label asp-for="cep" class="small mb-1">CEP</label>
-                                        <input asp-for="cep" class="form-control" placeholder="Digite o CEP" required>
+                                        <input asp-for="cep" class="form-control" maxlength="8" placeholder="Digite o CEP" required type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                         <span asp-validation-for="cep"></span>
                                     </div>
                                 </div>   
