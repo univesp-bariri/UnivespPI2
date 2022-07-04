@@ -67,18 +67,25 @@
 
         <div class="container-xl px-4 mt-4">
             <div class="row">
+
                 <div class="col-xl-4">
                     <div class="prof mb-4 mb-xl-0">
                         <div class="prof-header"></div>
                         <div class="prof-body text-center">
-
+                            <div class='instrucoes'>
+                                <h6>Instruções</h6>
+                                <p>1º Selecione a imagem (somente JPG)</p>
+                                <p>2º Carregue a imagem (ela será enviada para a base de dados)</p>
+                                <p>3º Preencha o formulário e então clique em Salvar</p><br>
+                            </div>
                             @using (Html.BeginForm("NovoAnuncio", "Anuncio", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                             {  
                             <div class="div-img">
                                 <img id="blah" class="img-account-profile rounded-circle mb-2" src="#" alt="">
                             </div>
                             <!-- Profile picture help block-->
-                            <div class="small font-italic text-muted mb-4">JPG ou PNG (250px x 180px)</div>
+                            <div class="small font-italic text-muted mb-4">JPG (250px x 180px)</div>
+                                <br>
                                 <div class="text-center">
                                     <p style="color:red;font-weight:bold;">
                                         
@@ -110,15 +117,15 @@
 
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-8">
-                                        <label asp-for="nome" class="small mb-1" for="inputNome">Nome</label>
-                                        <input asp-for="nome" class="form-control" placeholder="Seu nome" maxlength="20">
+                                        <label asp-for="nome" class="small mb-1" for="inputNome" >Nome</label>
+                                        <input asp-for="nome" class="form-control" placeholder="Seu nome" maxlength="20" required>
                                         <span asp-validation-for="nome"></span>
                                     </div>
                                     
                                     <div class="col-md-8">
                                         <label asp-for="categorianome" class="small mb-1">Categoria</label>
                                         <label asp-for="categorianome" class="small mb-1">
-                                            <select id="categoria" asp-for="categorianome" name="categorianome" class="form-control-select custom-select sources">
+                                            <select id="categoria" asp-for="categorianome" name="categorianome" class="form-control-select custom-select sources" required>
                                                 <option value=""></option>
                                                 <option value="Açougueiro">Açougueiro</option>
                                                 <option value="Acupunturista">Acupunturista</option>
@@ -895,17 +902,17 @@
                                 </div>
                                     <div class="mb-3">
                                     <label asp-for="descricao" class="small mb-1" for="inputDescricao">Descrição</label>
-                                    <input asp-for="descricao" class="form-control" placeholder="Digite a descrição do serviço" maxlength="80">
+                                    <input asp-for="descricao" class="form-control" placeholder="Digite a descrição do serviço" maxlength="80" required>
                                     <span asp-validation-for="descricao"></span>
                                 </div>
                                                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-6">
                                         <label asp-for="endereco" class="small mb-1">Endereço</label>
-                                        <input asp-for="endereco" class="form-control" placeholder="Digite o endereço">
+                                        <input asp-for="endereco" class="form-control" placeholder="Digite o endereço" required maxlength="50">
                                     </div>
                                     <div class="col-md-6">
                                         <label asp-for="cep" class="small mb-1">CEP</label>
-                                        <input asp-for="cep" class="form-control" placeholder="Digite o CEP">
+                                        <input asp-for="cep" class="form-control" maxlength="8" placeholder="Digite o CEP" required type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                         <span asp-validation-for="cep"></span>
                                     </div>
                                 </div>   
@@ -917,32 +924,32 @@
                                     <div class="col-md-6">
                                         <label id="campo_estado" asp-for="estado" class="small mb-1" for="inputOrgName">
                                             Estado
-                                            <select id="estado"asp-for="estado" class="form-control-select"></select>
+                                            <select id="estado"asp-for="estado" class="form-control-select" required></select>
                                         </label>
                                     </div>
                                     <div class="col-md-6">
                                         <label id="campo_cidade" asp-for="cidade" class="small mb-1" for="inputLocation">
                                             Cidade
-                                            <select id="cidade" asp-for="cidade" class="form-control-select"></select>
+                                            <select id="cidade" asp-for="cidade" class="form-control-select" required></select>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-8">
                                         <label asp-for="telefone" class="small mb-1" for="inputPhone">Telefone</label>
-                                        <input asp-for="telefone" class="form-control" placeholder="Informe o número de telefone com DDD" maxlength="12">
+                                        <input asp-for="telefone" class="form-control" placeholder="Informe o número de telefone com DDD" maxlength="12" required>
                                          <span asp-validation-for="telefone"></span>
                                     </div>
                                     <div class="col-md-8">
                                         <label asp-for="whatsapp" class="small mb-1" for="inputWhatsApp">WhatsApp</label>
-                                        <input asp-for="whatsapp" class="form-control" placeholder="Informe o WhatsApp" maxlength="12">
+                                        <input asp-for="whatsapp" class="form-control" placeholder="Informe o WhatsApp" maxlength="12" required>
                                         <span asp-validation-for="whatsapp"></span>
                                     </div>
                                 </div>
                                  <div class="row gx-3 mb-3">
                                     <div class="col-md-8">
                                         <label asp-for="custo" class="small mb-1" for="inputPrice">Custo por hora</label>
-                                        <input asp-for="custo" class="form-control" placeholder="Somente números inteiros" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+                                        <input asp-for="custo" class="form-control" required placeholder="Somente números inteiros" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
                                          <span asp-validation-for="custo"></span>
                                     </div>
                                     <div class="col-md-8">
